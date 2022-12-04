@@ -1,0 +1,53 @@
+.product-image {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border: 1px solid #aaaaaa;
+  background-color: #f4f4f4;
+  padding: 10px;
+  width: 150px;
+  height: 150px;
+  position: relative;
+}
+
+.product-image .options {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+p {
+  margin-top: 4px;
+  margin-bottom: 0px;
+}
+
+.name {
+  font-size: 15px;
+  color: #353535;
+  font-weight: 400;
+}
+
+.extra-details {
+  font-size: 14px;
+  color: gray;
+}
+
+.ratings-container {
+  margin: 2px 0px 5px 0px;
+}
+
+.ratings-container ion-icon {
+  color: #848484;
+  font-size: 14px;
+  margin-right: 2px;
+}
+
+.ratings-container .gold-star {
+  color: #e4cf4b;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 15px;
+  color: #454545;
+}
+/*# sourceMappingURL=product-info.component.css.map */

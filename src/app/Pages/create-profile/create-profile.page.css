@@ -1,0 +1,108 @@
+ion-content {
+  --background:#e54744;
+}
+
+ion-content ion-grid {
+  background-color: #e54744;
+  width: 100vw;
+  height: 100vh;
+}
+
+ion-content ion-grid ion-img {
+  margin: 0 0 2px 0;
+}
+
+ion-content ion-grid ion-input {
+  background-color: aliceblue;
+  border-radius: 2rem;
+  color: grey;
+  margin-top: 10px;
+}
+
+ion-content ion-grid .item-background-color {
+  --ion-item-background:aliceblue;
+  color: grey;
+  border-radius: 2rem;
+  --box-shadow:none;
+  font-size: 13px;
+}
+
+ion-content ion-grid .title {
+  color: aliceblue;
+  font-size: 18px;
+  margin: 0 0 2px 0;
+}
+
+ion-content ion-grid .error {
+  color: white;
+  font-size: 15px;
+  margin: 0 0 0 0;
+}
+
+ion-content ion-grid ion-button {
+  color: grey;
+  background-color: #f0f8ff;
+  border-radius: 2rem;
+  --box-shadow:none;
+  text-transform: none;
+}
+
+ion-content ion-grid ion-avatar {
+  margin: auto;
+}
+
+ion-content .pic {
+  position: relative;
+  margin-top: 15px;
+}
+
+ion-content .pic img {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+}
+
+ion-content .pic .profile-error {
+  color: red;
+}
+
+ion-content .pic ion-icon {
+  position: absolute;
+  z-index: 99;
+  left: 0;
+  right: -50px;
+  margin: auto;
+  bottom: 3px;
+  background: #ffacac;
+  color: white;
+  width: 22px;
+  height: 22px;
+  padding: 5px;
+  border-radius: 50px;
+}
+
+ion-content .updoc {
+  text-decoration: none;
+  border: none;
+}
+
+ion-content .csc {
+  background-color: aliceblue;
+  border-radius: 2rem;
+  color: grey;
+  margin-top: 10px;
+}
+
+ion-content ion-item {
+  margin-top: 10px;
+}
+
+ion-content :root {
+  --ion-color-favorite: #bfc1c2;
+  --ion-color-favorite-rgb: 191,193,194;
+  --ion-color-favorite-contrast: #000000;
+  --ion-color-favorite-contrast-rgb: 0,0,0;
+  --ion-color-favorite-shade: #a8aaab;
+  --ion-color-favorite-tint: #c5c7c8;
+}
+/*# sourceMappingURL=create-profile.page.css.map */

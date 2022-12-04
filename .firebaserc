@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "savingbox": {
+      "hosting": {
+        "app": [
+          "savingbox"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+.header {
+  --background: #e54744;
+  color: #fff;
+}
+
+p {
+  font-size: 15px;
+  color: #fff;
+  font-weight: bolder;
+}
+
+.bck-btn {
+  color: #fff;
+}
+
+.add-btn {
+  color: #fff;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.bank-card {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.bank-name {
+  color: #e54744;
+}
+
+.card-type {
+  color: #363636;
+}
+
+.card-number {
+  color: grey;
+}
+
+.time {
+  font-size: small;
+  color: grey;
+}
+
+.trash {
+  text-decoration: none;
+  float: right;
+  font-size: 20px;
+  margin-bottom: 0px;
+}
+
+.exp-date {
+  color: grey;
+  font-size: small;
+}
+/*# sourceMappingURL=added-payments.page.css.map */

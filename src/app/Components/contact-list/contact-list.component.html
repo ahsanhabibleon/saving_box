@@ -1,0 +1,148 @@
+<ion-header #header class="header-bottom-100 ">
+  <ion-toolbar class="mt-4 p-2" mode="ios">
+      <ion-title slot="start" class="red fw-4 sz-4 mt-3 pb-4">Add Friends</ion-title>
+      <ion-button slot="start" mode="ios" class="sz-2 pt-2" color="danger" (click)="close()">Done</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true" scrollEvents="true" [appHideHeader]="header">
+  <ion-searchbar
+  mode="ios"
+  class="mb-4"
+    placeholder="Search Contact"
+    animated
+    (ionInput)="filterTechnologies($event)"
+  ></ion-searchbar>
+
+  <div *ngIf="membersData?.length > 0">
+    <div class="b br mt-2 mr-3 ml-3 pt-2 pb-2" *ngFor="let data of membersData">
+      <ion-row class="user_data">
+        <ion-col size="2">
+          <ion-avatar item-start>
+            <img
+              class="rounded-circle"
+              src="assets/img/profile-picc.png"
+              width="30px"
+              *ngIf="data.profile_image === ''"
+            />
+            <img
+              class="rounded-circle"
+              src="{{ data.profile_image }}"
+              width="30px"
+              *ngIf="data.profile_image !== ''"
+            />
+          </ion-avatar>
+        </ion-col>
+        <ion-col size="7">
+          <div>
+            <h2>{{ data.name }}</h2>
+            <p class="p-0">{{ data.email }}</p>
+          </div>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button
+            mode="ios"
+            fill="outline"
+            color="danger"
+            class="sz-2"
+            (click)="add(data)"
+          >
+            <!-- <i class="fa fa-plus" aria-hidden="true"></i> -->
+            <ion-icon name="add" *ngIf="!data.selected"></ion-icon>
+            <ion-icon name="checkmark" *ngIf="data.selected === true"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+  <div *ngIf="!showFilter">
+    <div class="b br mt-2 mr-3 ml-3 pt-2 pb-2" *ngFor="let suggest of suggestData.slice(0,slice)">
+      <ion-row class="user_data" *ngIf="suggest.number !== null">
+        <ion-col size="2">
+          <ion-avatar>
+            <img
+              class="rounded-circle"
+              src="assets/Imgs/profile-picc.png"
+              width="30px"
+              *ngIf="suggest.photos === null"
+            />
+            <img
+              class="rounded-circle"
+              src="{{ suggest.photos }}"
+              width="30px"
+              *ngIf="suggest.photos !== null"
+            />
+          </ion-avatar>
+        </ion-col>
+        <ion-col size="7">
+          <div>
+            <h2 *ngIf="suggest.newname !== null">{{ suggest.newname }}</h2>
+            <h2 *ngIf="suggest.newname === null">
+              {{ suggest?._objectInstance?.name?.formatted }}
+            </h2>
+            <p class="p-0">{{ suggest.number }}</p>
+          </div>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button
+            mode="ios"
+            color="danger"
+            class="sz-2"
+            (click)="sendsuggestion(suggest)"
+          >
+            Add
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+
+  <div class="col-12 pb-4" *ngIf="showFilter">
+    <div class="b br mt-2 mr-3 ml-3 pt-2 pb-2" *ngFor="let suggest of fileterdata">
+      <ion-row class="user_data" *ngIf="suggest.number !== null">
+        <ion-col size="2">
+          <ion-avatar>
+            <img
+              class="rounded-circle"
+              src="assets/Imgs/profile-picc.png"
+              width="30px"
+              *ngIf="suggest.photos === null"
+            />
+            <img
+              class="rounded-circle"
+              src="{{ suggest.photos }}"
+              width="30px"
+              *ngIf="suggest.photos !== null"
+            />
+          </ion-avatar>
+        </ion-col>
+        <ion-col size="6">
+          <div>
+            <h2 *ngIf="suggest.newname !== null">{{ suggest.newname }}</h2>
+            <h2 *ngIf="suggest.newname === null">
+              {{ suggest?._objectInstance?.name?.formatted }}
+            </h2>
+            <p class="p-0">{{ suggest.number }}</p>
+          </div>
+        </ion-col>
+        <ion-col size="4">
+          <ion-button
+            mode="ios"
+            color="danger"
+            class="sz-2"
+            (click)="sendsuggestion(suggest)"
+          >
+            Suggest
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      distance="1%"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

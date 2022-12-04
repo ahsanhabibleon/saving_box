@@ -1,0 +1,60 @@
+<ion-header #header class="header-bottom">
+  <ion-toolbar #toolbar>
+    <ion-title class="red fw-4 sz-6 mt-4 pb-4"> Sign In </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content scrollEvents="true" [appHideHeader]="header" fullscreen="true">
+  <ion-grid>
+    <ion-row class="logo_box">
+      <img class="img" src="assets/Imgs/logo.png" alt="" />
+    </ion-row>
+    <form class="ion-margin form" [formGroup]="loginForm">
+      <ion-label class="grey required">Email</ion-label>
+      <ion-item class="b br mt-2 mb-4" lines="none">
+        <ion-input
+          type="email"
+          formControlName="email"
+          placeholder="Enter Email"
+        ></ion-input>
+      </ion-item>
+      <ion-label class="grey required">Password</ion-label>
+      <ion-item class="b br mt-2 mb-2" lines="none">
+        <ion-input
+          type="password"
+          placeholder="Enter Password"
+          formControlName="password"
+        ></ion-input>
+      </ion-item>
+      <div class="signin br">
+        <ion-button
+          expand="block"
+          mode="ios"
+          color="danger"
+          class="br"
+          (click)="submitForm()"
+          >Sign In</ion-button
+        >
+      </div>
+    </form>
+    <div class="ion-text-center">
+      <p (click)="forgetPassword()" style="margin-bottom: 40px">
+        Forgot Password ?
+      </p>
+    </div>
+    <p class="ion-text-center fw-4 sz-6">OR</p>
+    <div class="faceid br">
+      <ion-button expand="block" color="danger" mode="ios" (click)="faceLogin()"
+        >Face ID</ion-button
+      >
+    </div>
+    <!-- <div class="ion-text-center lock-div">
+      <ion-icon (click)="faceId()" src="assets/icon/person.svg" class="lock" slot="start"></ion-icon>
+  </div>
+  <p>Login with FaceId</p> -->
+  </ion-grid>
+  <div class="signup">
+    <p>
+      Don't have an account? <b (click)="signup()" class="route">Sign Up</b>
+    </p>
+  </div>
+</ion-content>

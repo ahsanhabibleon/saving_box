@@ -1,0 +1,50 @@
+// .header{
+//   --background: #e54744;
+//   color: #fff;
+//   font-weight: bold;
+// }
+// .list{
+//   --ion-background-color: rgb(255, 234, 237);
+// }
+
+.notifiy {
+  //--padding: 5px;
+  //--border-radius: 10px;
+  .inner {
+    display: flex;
+    align-items: center;
+    .img {
+      min-width: 50px;
+      margin-right: 10px;
+    }
+    img {
+      height: 50px;
+      border-radius: 50%;
+      width: 50px;
+      //border: 2px solid #eee;
+    }
+  }
+}
+.notify_btn {
+  display: flex;
+  justify-content: space-evenly;
+  ion-button {
+    font-size: 12px;
+  }
+}
+h3 {
+  text-align: center;
+  margin-top: 0px;
+}
+.payment_btn {
+    display: flex;
+  justify-content: space-evenly;
+  ion-button {
+    font-size: 12px;
+    width: 120px;
+  }
+}
+
+.msg{
+  text-align: justify;
+}

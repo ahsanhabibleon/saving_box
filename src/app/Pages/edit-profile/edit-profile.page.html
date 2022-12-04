@@ -1,0 +1,262 @@
+<ion-header #header class="header-bottom-100">
+  <ion-toolbar class="mt-4 p-2" mode="ios">
+    <ion-buttons slot="start">
+      <ion-button class="pt-3" color="danger" (click)="pop()" mode="md">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+      <ion-title slot="start" class="red fw-4 sz-4 mt-3 pb-4">Edit Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content scrollEvents="true" [appHideHeader]="header" fullscreen="true" class="ion-padding">
+  <div class="user-details">
+    <div class="inner-sign">
+      <div class="container">
+        <div class="row mt-5">
+          <form [formGroup]="profileForm">
+            <div class="ion-text-center pic ion-margin-bottom mt-3">
+              <ion-icon name="pencil" (click)="selectImage()"></ion-icon>
+              <img
+                class="rounded-circle"
+                [src]="userData?.profile_image==''|| userData?.profile_image==null?'assets/Imgs/profile-picc.png':userData?.profile_image"
+              />
+            </div>
+            <div class="col-12">
+              <ion-label class="grey ml-1">Name</ion-label>
+              <ion-input
+                type="text"
+                class="b br mt-2 mb-4"
+                id="name"
+                placeholder="Enter Full Name"
+                formControlName="name"
+              ></ion-input>
+              <p
+                class="error sz-1 ml-1"
+                *ngIf="profileForm.get('name').hasError('required') && profileForm.get('name').touched"
+              >
+                Name is required.
+              </p>
+              <!-- <ion-label class="grey ml-1">Email</ion-label>
+              <ion-input
+                type="email"
+                class="b br mt-2 mb-4"
+                id="email"
+                placeholder="email@gmail.com"
+                formControlName="email"
+              ></ion-input>
+              <p
+              class="error sz-1 ml-1"
+              *ngIf="profileForm.get('email').hasError('required') && profileForm.get('email').touched"
+            >
+              Email is required.
+            </p> -->
+              <!-- <div class="form-group">
+                <label>Mobile</label>
+                <input id="signin-phone-no" type="hidden" placeholder="Mobile" formControlName="dailcode">
+                <input type="text" id="signin-mobileno" formControlName="phone" placeholder="9874512630"   minlength="9" maxlength="12">
+                <ion-row>
+                  <ion-col size="3">
+                    <ion-label class="grey ml-1">Code</ion-label>
+                    <ion-select class="b br mt-2 mb-4" interface="action-sheet" formControlName="dial_code" placeholder="+">
+                      <ion-select-option
+                        *ngFor="let i of paisCode"
+                        [value]="i.code"
+                        >+{{i.code}}
+                      </ion-select-option>
+                    </ion-select>
+                  </ion-col>
+                  <ion-col size="9">
+                    <ion-label class="grey ml-1">Phone</ion-label>
+                    <input  id="signin-mobileno" type='text' style="width: 100%;padding: 10px;margin-top:8px;" mask='(000) 000-0000' formControlName="mobile" placeholder="Enter Phone Number" type="tel" class="input b br"/>
+                    <p
+                      class="error sz-1 ml-1"
+                      *ngIf="profileForm.get('mobile').hasError('required') && profileForm.get('mobile').touched"
+                    >
+                      Phone number is required.
+                    </p>
+                  </ion-col>
+                </ion-row>
+              </div> -->
+
+              <div class="form-group">
+                <ion-label class="grey ml-1">Date of Birth</ion-label>
+                <div class="b br mt-2 mb-4">
+                  <ion-datetime
+                  value="1994-12-15T13:47:20.789+5:00"
+                  display-timezone="utc"
+                    placeholder="MMM DD, YYYY"
+                    formControlName="dob"
+                    displayFormat="MMM DD, YYYY"
+                    pickerFormat="MMM-DD-YYYY"
+                    [(ngModel)]="firstDate"
+                  >
+                  </ion-datetime>
+                </div>
+                <p
+                  class="error sz-1 ml-1"
+                  *ngIf="profileForm.get('dob').hasError('required') && profileForm.get('dob').touched"
+                >
+                  Date of birth is required.
+                </p>
+              </div>
+              <!-- <div class="form-group">
+                <ion-label class="grey ml-1">Gender</ion-label>
+                <div  class="b br mt-2 mb-4">
+                  <ion-select
+                  formControlName="gender"
+                  placeholder="Select Gender"
+                  id="gender"
+                  interface="action-sheet"
+                >
+                  <ion-select-option value="Male">Male</ion-select-option>
+                  <ion-select-option value="Female">Female</ion-select-option>
+                </ion-select>
+                </div>
+
+                <p
+                  class="error sz-1 ml-1"
+                  *ngIf="profileForm.get('gender').hasError('required') && profileForm.get('gender').touched"
+                >
+                  Gender is required.
+                </p>
+              </div> -->
+              <!-- <div class="form-group">
+                <ion-label class="grey ml-1">Country</ion-label>
+                <div style="position: relative" class="b br mt-2 mb-4">
+                  <ion-select
+                  (ionChange)='populateState($any($event.target).value)'
+                    formControlName="country"
+                    placeholder="Select Country"
+                    interface="action-sheet"
+                    id="country">
+                    <ion-select-option
+                      [value]="data?.isoCode"
+                      *ngFor="let data of countries">
+                      {{data?.name}}
+                    </ion-select-option>
+                  </ion-select>
+                  <p
+                    class="error sz-1 ml-1"
+                    *ngIf="profileForm.get('country').hasError('required') && profileForm.get('country').touched"
+                  >
+                    Country is required.
+                  </p>
+                </div>
+              </div> -->
+
+              <div class="form-group">
+                <ion-label class="grey ml-1">State</ion-label>
+                <div style="position: relative" class="b br mt-2 mb-4">
+                  <ion-select
+                    (ionChange)='populateCity($any($event.target).value)'
+                    formControlName="state"
+                    placeholder="Select State"
+                    interface="action-sheet"
+                    id="state">
+                    <ion-select-option
+                      [value]="da.isoCode"
+                      *ngFor="let da of states">
+                      {{da.name}}
+                    </ion-select-option>
+                  </ion-select>
+                  <p
+                    class="error sz-1 ml-1"
+                    *ngIf="profileForm.get('state').hasError('required') && profileForm.get('state').touched"
+                  >
+                    State is required.
+                  </p>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <ion-label class="grey ml-1">City</ion-label>
+                <div style="position: relative" class="b br mt-2 mb-4">
+                  <ion-select
+                  type="text"
+                    formControlName="city"
+                    placeholder="Select City"
+                    interface="action-sheet"
+                    id="city"
+                    >
+                    <ion-select-option
+                      *ngFor="let data of cities" [value]="data.name">
+                      {{data.name}}
+                    </ion-select-option>
+                  </ion-select>
+                  <p
+                    class="error sz-1 ml-1"
+                    *ngIf="profileForm.get('city').hasError('required') && profileForm.get('city').touched"
+                  >
+                    City is required.
+                  </p>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <ion-label class="grey ml-1">Zip Code</ion-label>
+                <ion-input
+                  type="number"
+                  class="b br mt-2 mb-4"
+                  placeholder="Enter Postal Code"
+                  formControlName="zip_code"
+                ></ion-input>
+                <p
+                class="error sz-1 ml-1"
+                *ngIf="profileForm.get('zip_code').hasError('required') && profileForm.get('zip_code').touched"
+              >
+                Zip Code is required.
+              </p>
+              </div>
+
+              <div class="form-group">
+                <ion-label class="grey ml-1">Address 1</ion-label>
+                <ion-input
+                  type="text"
+                  class="b br mt-2 mb-4"
+                  placeholder="Enter Street Address"
+                  formControlName="address"
+                ></ion-input>
+                <p
+                class="error sz-1 ml-1"
+                *ngIf="profileForm.get('address').hasError('required') && profileForm.get('address').touched"
+              >
+                City is required.
+              </p>
+              </div>
+
+              <div class="form-group">
+                <ion-label class="grey ml-1">Address 2</ion-label>
+                <ion-input
+                  type="text"
+                  class="b br mt-2 mb-4"
+                  placeholder="Enter Street Address Line 2"
+                  formControlName="address2"
+                ></ion-input>
+              </div>
+
+              <div class="form-group">
+                <ion-label class="grey ml-1">SSN</ion-label>
+                <ion-input
+                readonly="true"
+                  type="text"
+                  class="b br mt-2 mb-4"
+                  placeholder="Enter Street Address"
+                  formControlName="ssn"
+                ></ion-input>
+              </div>
+                <!-- <ion-button mode="ios" class="ion-margin-bottom" color="danger" (click)="openDoc()" expand="block">
+                  Upload Docs
+                </ion-button> -->
+
+              <ion-button mode="ios" color="danger" (click)="editProfileData()" expand="block" [disabled]="!profileForm.valid">
+                Save</ion-button
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

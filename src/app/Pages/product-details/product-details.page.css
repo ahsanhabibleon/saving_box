@@ -1,0 +1,128 @@
+ion-back-button {
+  color: #000;
+}
+
+ion-slides {
+  height: 350px;
+}
+
+ion-slides ion-slide {
+  padding: 25px;
+}
+
+.qty {
+  padding: 0;
+  margin: 20px 0px 10px 0px;
+  max-width: 25%;
+  max-height: 35px;
+  --background: rgb(224, 224, 224);
+  border-radius: 10px;
+  color: black;
+  font-size: 12px;
+}
+
+.desc {
+  font-size: 14px;
+  margin-top: 15px;
+  color: #383838;
+}
+
+.slider {
+  width: 100%;
+  border: 2px solid #efc5c5;
+  border-radius: 16px;
+  position: relative;
+}
+
+.slider ion-icon {
+  position: absolute;
+  z-index: 99;
+  right: 14px;
+  top: 10px;
+  font-size: 30px;
+  color: red;
+}
+
+.detail_box {
+  margin-top: 20px;
+}
+
+.detail_box span {
+  display: block;
+}
+
+.detail_box ion-chip {
+  background: #eb445a;
+  color: #fff;
+}
+
+.detail_box ion-chip ion-icon {
+  font-size: 12px;
+}
+
+.title {
+  color: #eb445a;
+  margin: 20px 0px 5px 5px;
+}
+
+.price {
+  font-weight: 600;
+}
+
+.footer {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.footer ion-button {
+  width: 100%;
+}
+
+.similarProdcts {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.similarProdcts .heading {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.item {
+  width: 100%;
+  overflow-x: scroll;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.item .item-inner {
+  min-width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  text-align: center;
+}
+
+.des {
+  margin: 20px 0px 20px 0px;
+  border-radius: 10px;
+  padding: 15px;
+  background: #dbdbdb;
+  color: #000;
+}
+/*# sourceMappingURL=product-details.page.css.map */

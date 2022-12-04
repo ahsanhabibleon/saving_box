@@ -1,0 +1,99 @@
+<ion-header class='ion-no-border'>
+  <ion-toolbar  mode="ios">
+    <ion-back-button color="danger" mode="md" (click)="pop()" slot="start">
+    </ion-back-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content #content [scrollEvents]="true" class="ion-padding">
+<div class="slider">
+  <!-- <ion-icon name="heart-outline"></ion-icon> -->
+  <ion-slides pager="true" >
+    <ion-slide>
+      <img
+      [src]="data?.base_url+data?.featuredImage"
+      alt=""
+    />
+    </ion-slide>
+    <ng-container *ngIf="data?.featuredImage1!==null">
+      <ion-slide>
+        <img
+        [src]="data?.base_url+data?.featuredImage1"
+        alt=""
+      />
+      </ion-slide>
+    </ng-container>
+    <ng-container *ngIf="data?.featuredImage2!==null">
+      <ion-slide>
+        <img
+        [src]="data?.base_url+data?.featuredImage2"
+        alt=""
+      />
+      </ion-slide>
+    </ng-container>
+    <ng-container *ngIf="data?.featuredImage3!==null">
+      <ion-slide>
+        <img
+        [src]="data?.base_url+data?.featuredImage3"
+        alt=""
+      />
+      </ion-slide>
+    </ng-container>
+  </ion-slides>
+</div>
+
+<div class="detail_box">
+<span class="title"><strong>{{data.title}}</strong></span><br>
+<small style="margin-left: 5px;font-size: 12px;">Brand: {{data.brand}}</small><br>
+<small style="margin-left: 5px;font-size: 12px;">Category: {{category}}</small><br>
+<small style="margin-left: 5px;font-size: 12px;">Color: {{data.color}}</small><br>
+<small style="margin-left: 5px;font-size: 12px;">Size: {{data.size}}</small><br>
+<span style="margin:5px 0px 0px 5px; font-weight: 600;">${{data.sale_price}}</span><br><br>
+<!-- <ion-chip style="margin: 0;margin-top: 12px;" color="danger">
+  <ion-label>{{data.rating}}</ion-label>
+  <ion-icon name="star"></ion-icon>
+</ion-chip> -->
+<!-- <ion-item class="qty">
+  <ion-label>Qty:</ion-label>
+  <ion-select interface="popover" [value]="quantity" (ionChange)='getValue($any($event.target).value)'>
+    <ion-select-option value="1">1</ion-select-option>
+    <ion-select-option value="2">2</ion-select-option>
+    <ion-select-option value="3">3</ion-select-option>
+    <ion-select-option value="4">4</ion-select-option>
+    <ion-select-option value="5">5</ion-select-option>
+  </ion-select>
+</ion-item> -->
+<ion-label style="margin: 0px 10px 0px 5px; font-size: 14px;">Qty:</ion-label>
+<span class="qty">
+  <span ion-button (click)="decrementQty()" >-</span>
+  <span>{{quantity}}</span>
+  <span ion-button (click)="incrementQty()">+</span>
+</span>
+<div class="b br p-3 mt-4"><p style="margin-top: 0px;"><strong>Description</strong></p>
+<span class="desc">{{data.description}}</span>
+</div><br>
+<span *ngIf="data.vendor.business_registration_name!==null" style="color: rgb(29, 29, 29); font-size: 15px; margin-left: 5px;">Seller: {{data.vendor.business_registration_name}}</span>
+<span *ngIf="data.vendor.first_name!==null" style="color: rgb(20, 20, 20); font-size: 15px;margin-left: 5px;">Seller: {{data.vendor.first_name}} {{data.vendor.last_name}}</span>
+<p style="color: rgb(95, 95, 95); font-size: 12px;font-weight: bold; margin-left: 5px; margin-top: 0px;">Visit Us:   <a (click)="openUrl(data.url)">{{data.url}}</a></p>
+</div>
+<div class="similarProdcts">
+<span class="heading">Similar Products</span>
+</div>
+
+<div class="item">
+<div class="item-inner" (click)="details(item)" *ngFor="let item of similarProducts">
+  <img [src]="item.base_url+item.featuredImage" width="100px" style="border-radius: 10px;" alt="">
+  <span>{{item.title}}</span>
+  <small *ngIf="item.vendor.business_registration_name!==null" style="color: rgb(29, 29, 29);">{{item.vendor.business_registration_name}}</small>
+  <small *ngIf="item.vendor.first_name!==null" style="color: rgb(20, 20, 20);">{{item.vendor.first_name}} {{item.vendor.last_name}}</small>
+  <span class="price">${{item.sale_price}}</span>
+</div>
+</div>
+
+</ion-content>
+<ion-footer>
+  <div class="footer">
+    <ion-button color="danger" (click)="toCart()" mode="ios" fill="outline" >Add To Cart</ion-button>
+    <ion-button color="danger" (click)="toBuy()" mode="ios">Buy Now</ion-button>
+    </div>
+</ion-footer>

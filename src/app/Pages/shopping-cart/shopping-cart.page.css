@@ -1,0 +1,37 @@
+.item {
+  background: white;
+  padding: 5px;
+  margin: 5px 0px 5px 0px;
+}
+
+.qty {
+  padding: 0;
+  margin: 10px 0px 5px 0px;
+  min-width: 50%;
+  max-width: 80%;
+  min-height: 30px;
+  --background: rgb(224, 224, 224);
+  border-radius: 10px;
+  color: black;
+  font-size: 12px;
+}
+
+.remove {
+  width: 100%;
+  padding: 5px;
+  font-size: 12px;
+  text-align: center;
+  border-top: 1px solid #bbbbbb;
+}
+
+.product-image {
+  margin: 0px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: #f4f4f4;
+  padding: 10px;
+  width: 150px;
+  height: 150px;
+  position: relative;
+}
+/*# sourceMappingURL=shopping-cart.page.css.map */

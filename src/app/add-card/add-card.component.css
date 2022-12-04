@@ -1,0 +1,20 @@
+.header {
+  --background: #e54744;
+  color: #fff;
+}
+
+.item-btn {
+  --background: #e54744;
+  color: #fff;
+}
+
+p {
+  font-size: 15px;
+  color: #fff;
+  font-weight: bolder;
+}
+
+.close-btn {
+  color: #fff;
+}
+/*# sourceMappingURL=add-card.component.css.map */

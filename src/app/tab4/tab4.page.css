@@ -1,0 +1,45 @@
+ion-content {
+  --background:#fff;
+  --background-color: #fff;
+}
+
+ion-list {
+  --background:#fff;
+  background-color: #fff;
+}
+
+.header {
+  --background: #e54744;
+  text-align: center;
+}
+
+.bck-btn {
+  color: #fff;
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 5px;
+}
+
+ion-item {
+  --background:#fff;
+  --ion-background-color: #fff;
+}
+
+ion-title {
+  color: #fff;
+  font-weight: bolder;
+}
+
+ion-label {
+  padding: 5px;
+}
+
+p ion-icon {
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+.read {
+  color: #43b5ef;
+}
+/*# sourceMappingURL=tab4.page.css.map */

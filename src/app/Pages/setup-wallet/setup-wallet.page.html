@@ -1,0 +1,42 @@
+<ion-header #header class="header-bottom-100 m-0">
+  <ion-toolbar mode="ios" class="mt-3 pb-2">
+    <!-- <ion-buttons slot="start">
+      <ion-back-button class="mt-3" color="danger" mode="md" (click)='navigate()'></ion-back-button>
+    </ion-buttons> -->
+    <ion-title color="danger" class="red fw-4 sz-4 mt-3 pb-4">Setup Wallet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="ion-padding ">
+    <ion-row class="ion-margin">
+      <ion-col size="12">
+        <ion-label class="grey required">Wallet Name</ion-label>
+        <ion-input
+          [(ngModel)]="walletName"
+          type="text"
+          placeholder="Enter Wallet Name"
+          class="b br mt-2 mb-4"
+        ></ion-input><br>
+        <ion-checkbox
+        color="danger"
+        style="top: 3px;position: relative; width: 20px; height: 18px; margin-right: 5px;"
+        mode="ios"
+        [ngModelOptions]="{standalone: true}"
+        [(ngModel)]="checkBoxConfirms"
+      ></ion-checkbox>
+      <span class="black sz-2 ion-text-center sz-4 "
+        >By opening an account, I
+        agree to all the <b>privacy policies</b>,
+        <b>agreements</b> and <b>terms and
+          conditions</b> of;<br></span>
+      </ion-col>
+      <ion-col size="12">
+
+      </ion-col>
+      <ion-col  size="12">
+        <ion-button [disabled]="!checkBoxConfirms" color="danger" mode="ios" (click) ="navigate()" expand="block">Next</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

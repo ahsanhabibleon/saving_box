@@ -1,0 +1,31 @@
+
+
+#city::placeholder{
+  --color: black;
+  --opacity: 1;
+}
+
+.pic {
+    position: relative;
+  img {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    border: 2px solid #cf3c4f;
+  }
+
+  ion-icon{
+    position: absolute;
+    z-index: 99;
+    left: 0;
+    right: -50px;
+    margin: auto;
+    bottom: 3px;
+    background: #ffaaaa;;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    border-radius: 50px;
+  }
+}

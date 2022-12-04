@@ -1,0 +1,14 @@
+<div class="product" (click)="productDetail(product)">
+  <div class="product-image" >
+    <ion-icon *ngIf="showOption" name="ellipsis-vertical-outline" class="options"></ion-icon>
+    <img width="100%" height="100%" [src]="product?.base_url+product?.featuredImage" alt="">
+  </div>
+  <div class="details">
+    <p class="name"> {{ product?.title }} </p>
+    <p class="extra-details"> {{product?.details}} </p>
+    <ion-row class="ratings-container">
+      <ion-icon *ngFor="let star of [1,2,3,4,5]" name="star" [ngClass]="{'gold-star': star <= product?.rating}"></ion-icon>
+    </ion-row>
+    <p class="price"> ${{product?.sale_price}}</p>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="category-items-container">
+  <div *ngFor="let item of categoryList$ | async" class="category-item" (click)="openCategory(item)">
+    <div class="icon">
+      <ion-icon  name='car'></ion-icon>
+    </div>
+    <div class="label"> {{item.name}} </div>
+  </div>
+</div>

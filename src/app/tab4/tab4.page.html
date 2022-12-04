@@ -1,0 +1,41 @@
+
+<ion-header #header class="header-bottom-100 ">
+  <ion-toolbar class="mt-4 p-2" mode="ios">
+      <ion-title slot="start" class="red fw-4 sz-4 mt-2 pb-4">Chats</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  [fullscreen]="true" scrollEvents="true" [appHideHeader]="header">
+  <ion-refresher slot="fixed"  (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <!-- <div class="ion-padding"> -->
+    <ion-list style="margin-top: 10px;">
+    <!-- <ion-item-sliding> -->
+      <div *ngFor="let chat of chats; let i =index;" class="b br m-3 pt-2 pb-2">
+        <ion-item button lines="none" (click)="navigate(chat.id,chat.title,chat.chat_type,chat.users)">
+          <ion-avatar style="height: 50px; width: 50px;" slot="start" >
+            <ion-img [src]="chat.image"></ion-img>
+          </ion-avatar>
+          <ion-label style="min-width: 50%;">
+            <h2 style="font-weight: bolder;color: rgb(44, 44, 44); font-size: 14px;">{{chat.title}}</h2>
+            <p style="font-size: 14px; margin-top: 8px;"><ion-icon class="read" name="checkmark-done"></ion-icon>&nbsp;{{chat.last_message_text}}</p>
+          </ion-label>
+          <ion-label slot="end" class="ion-text-right" style="color: grey; max-width: 15%;">
+            <p style="font-size: 8px;">{{chat.updated_at | date : 'shortDate'}}</p>
+            <p>&nbsp;</p>
+          </ion-label>
+        </ion-item>
+      </div>
+      <!-- <ion-item-options (ionSwipe)="presentAlertConfirm(i,chat.id)" side="end">
+      </ion-item-options>
+    </ion-item-sliding> -->
+  </ion-list>
+  <!-- </div> -->
+</ion-content>
+
+
+
+
+
+

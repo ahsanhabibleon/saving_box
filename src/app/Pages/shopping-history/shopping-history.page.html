@@ -1,0 +1,41 @@
+<ion-header #header class="header-bottom-100 m-0">
+  <ion-toolbar class="mt-2 p-2" mode="ios">
+    <ion-buttons slot="start">
+      <ion-back-button
+        color="danger"
+        mode="md"
+        defaultHref="home"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title color="danger" class="red fw-4 sz-4 mt-2 pb-2"
+      >Order History</ion-title
+    >
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" scrollEvents="true" [appHideHeader]="header" fullscreen="true">
+  <ion-grid>
+    <div class="b br mt-3 p-2" *ngFor='let item of data; let i = index;'>
+      <ion-row class="item" >
+        <ion-col class="product-image" size="6">
+          <img style="width: 100%; height: 100%;border-radius: 5px;" [src]='item?.product?.base_url+item?.product?.featuredImage'/>
+        </ion-col>
+        <ion-col size="6">
+          <p style="font-size: 18px;margin: 0;"><strong>{{item?.product?.title}}</strong></p>
+          <span style="color: rgb(51, 51, 51);font-size: 14px;"><strong>Order ID: {{item.id}}</strong></span><br>
+          <!-- <span style="color: grey;font-size: 14px;"><u>${{item.regularPrice}}</u>/-</span><br><br> -->
+          <span *ngIf="item?.vendor?.business_registration_name!==null" style="color: rgb(51, 51, 51); font-size: 12px;">{{item?.vendor?.business_registration_name}}</span>
+          <span *ngIf="item?.vendor?.first_name!==null" style="color: rgb(51, 51, 51); font-size: 12px;">{{item?.vendor?.first_name}} {{item?.vendor?.last_name}}</span>
+          <br><ion-button color="success" (click)="getOrderDetails(item.id)">More Details</ion-button>
+          <!-- <span style="font-size: 12px; color: rgb(51, 51, 51);font-weight: bold;">Delivery in 2 days by Mon</span> -->
+        </ion-col>
+        <!-- <div (click)="presentAlertConfirm(item.id, i)" class="remove">
+            <ion-icon name="trash"></ion-icon>
+            <span>Remove</span>
+        </div> -->
+      </ion-row>
+    </div>
+
+  </ion-grid>
+  </ion-content>
+

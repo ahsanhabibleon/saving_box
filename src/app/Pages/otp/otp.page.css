@@ -1,0 +1,55 @@
+ion-content {
+  --background: #e54744;
+}
+
+.input {
+  width: 100%;
+}
+
+.heading-box {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.heading-box h4 {
+  color: #fff;
+  margin-bottom: 50px;
+}
+
+.heading-box p {
+  color: #fff;
+}
+
+.heading-box img {
+  width: 300px;
+  margin-bottom: 50px;
+}
+
+.heading-box ion-input {
+  --background: #fff;
+  border-radius: 50px;
+  border: 2px solid #ccc;
+}
+
+.heading-box ion-button {
+  --background: #fff;
+  color: #e54744;
+  width: 100%;
+  margin-top: 20px;
+  --background-activated: rgb(243, 184, 184);
+}
+/*# sourceMappingURL=otp.page.css.map */

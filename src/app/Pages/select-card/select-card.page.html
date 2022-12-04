@@ -1,0 +1,30 @@
+<ion-header class="ion-no-border header-bottom-100">
+  <ion-toolbar mode="ios">
+    <ion-icon color="dark" name="close" (click)="closeModal()" slot="start"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+<div class="content">
+ <div class="inner">
+    <div class="headding_box">
+    <h4 class="ion-text-center ">{{notificationData.message}}</h4>
+    <!-- <img class="pay" src="assets/Imgs/payment.svg" alt=""> -->
+    </div>
+    <div class="show_card">
+    <ion-select class="b br mt-2 mb-4" interface="action-sheet"  placeholder="Please select card" [(ngModel)]="cardData" >
+      <ion-select-option *ngFor="let data of cards" [value]="data" >{{data.brand}} XXXX-XXXX-{{data.last4}}</ion-select-option>
+    </ion-select>
+    </div>
+    <div class="btn_pay">
+      <ion-button mode="ios" (click)="closeModal()" color="danger" fill="outline">
+        Cancel
+      </ion-button>
+      <ion-button mode="ios" (click)="procced()" color="danger" >
+        Proceed
+      </ion-button>
+    </div>
+ </div>
+</div>
+
+</ion-content>

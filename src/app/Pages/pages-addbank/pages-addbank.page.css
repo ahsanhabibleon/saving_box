@@ -1,0 +1,36 @@
+.bck-btn {
+  color: #e54744;
+}
+
+ion-content {
+  text-align: center;
+}
+
+ion-content .logo {
+  text-align: center;
+}
+
+ion-content .logo img {
+  height: 170px;
+}
+
+ion-content .title {
+  margin: 20px 0 5px 0;
+  font-size: 20px;
+  font-weight: bolder;
+  color: #e54744;
+}
+
+ion-content .input-t {
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  margin: 10px 0 0 0;
+  background-color: white;
+}
+
+ion-content .btn {
+  margin: 20px 0 0 0;
+  --background:#e54744;
+}
+/*# sourceMappingURL=pages-addbank.page.css.map */

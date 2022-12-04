@@ -1,0 +1,60 @@
+<ion-header #header class="header-bottom-100 m-0">
+  <ion-toolbar class="mt-4 p-2" mode="ios">
+    <ion-buttons slot="start">
+      <ion-button class="pt-1" color="danger" (click)="pop()" mode="ios">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="red fw-4 sz-4 mt-2 pb-4">{{title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  #content [scrollEvents]="true">
+
+  <ion-grid>
+
+    <ion-row class="user" *ngFor="let data of messages;let i=index;">
+      <div class="chat-message" *ngIf="senderId !== data.sent_by">
+          <div class="left-bubble"  (click)='presentAlertConfirm(i, data.id)'>
+            <span style="font-size: 14px;"><b>{{data.user.name}}</b></span><br>
+            <span style="font-size: 14px;">{{data.message_text}}</span>
+            <!-- <div class="time" text-right><br>{{ data.created_at | date:'short' }}</div> -->
+          </div>
+      </div>
+      <div class="chat-message"  *ngIf="data.sent_by === senderId">
+        <div class="right-bubble " (click)='presentAlertConfirm(i, data.id)'>
+          <span style="font-size: 14px;">{{data.message_text}}</span>
+          <!-- <div class="time" text-right><br>{{ data.created_at | date:'short' }}</div> -->
+        </div>
+      </div>
+    </ion-row>
+      <ion-row class="user" *ngFor="let data of conversation;let i=index;">
+        <div class="chat-message"  *ngIf="data.alignment === 'left'">
+          <div class="left-bubble" (click)='presentAlertConfirm(i, data.msgId)'>
+            <span *ngIf="data.userId != senderId" style="font-size: 14px;"><b>{{data.userName}}</b></span><br>
+            <span style="font-size: 14px;">{{data.msg}}</span>
+            <!-- <div class="time" text-right><br>{{ data.created_at | date:'short' }}</div> -->
+          </div>
+        </div>
+        <!-- <div class="profile_img">
+        </div>-->
+      <div class="chat-message"  *ngIf="data.alignment === 'right'">
+        <div class="right-bubble" (click)='presentAlertConfirm(i, data.msgId)'>
+          <span style="font-size: 14px;"  [innerHtml]="data.msg"></span>
+          <!-- <div class="time" text-right><br>{{ data.created_at | date:'short' }}</div> -->
+        </div>
+      </div>
+      </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer>
+
+  <div class="footer">
+    <textarea id="editor"   id="commentField"class="ion-padding-start" auto-grow class="message-input"
+      placeholder="Type Message....." rows="1"  (keyup.enter)="send()"
+      [(ngModel)]="msg "></textarea>
+    <div>
+      <ion-icon class="sndmsg" color="danger" name="send" (click)="send()"></ion-icon>
+    </div>
+  </div>
+</ion-footer>

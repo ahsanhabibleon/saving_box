@@ -1,0 +1,95 @@
+.upper_box {
+  text-align: center;
+}
+
+.upper_box h1 {
+  font-size: 85px;
+  color: #52daf2;
+  font-weight: bold;
+}
+
+ion-content {
+  --background: #fff;
+}
+
+.static {
+  font-size: 30px;
+}
+
+.profile_tag {
+  width: 60px;
+}
+
+.profile_tag img {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  border: 2px solid #ccc;
+}
+
+.cylce_info {
+  margin-top: 30px;
+}
+
+.members {
+  width: 100%;
+  height: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.user_name {
+  font-size: 11px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  overflow: hidden;
+  white-space: initial;
+}
+
+ion-label {
+  display: block;
+  font-weight: 600;
+}
+
+.user_list {
+  padding: 0 5px 0 0;
+}
+
+.add_icon {
+  background-color: #eb445a;
+  color: #fff;
+  height: 50px;
+  width: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 30px;
+  border-radius: 30px;
+}
+
+.add_icon ion-icon {
+  font-size: 30px;
+}
+
+h5 {
+  font-size: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+h5 ion-icon {
+  font-size: 27px;
+  font-weight: 600;
+}
+/*# sourceMappingURL=view-cycle.page.css.map */

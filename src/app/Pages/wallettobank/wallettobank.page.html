@@ -1,0 +1,207 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button class="pt-1 sz-4 fw-3" color="danger" (click)="navigate()" mode="ios">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+</ion-toolbar>
+</ion-header>
+
+<ion-content class="wallet">
+  <ion-grid>
+  <ion-card>
+    <ion-card-header>
+      <span class="sz-6 fw-3 red">Wallet to Bank<br>Transfer</span>
+    </ion-card-header>
+    <ion-card-content class="wallet-balance">
+      <p><span class="sz-4 fw-3 black"> ${{ amount | number:'1.2-2'}}</span></p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="monthly-date">
+    <ion-card-content>
+        <ion-row class="input-radio">
+          <ion-col>
+            <h5 class="sz-5 fw-3 red pb-3">Select Bank</h5>
+              <ion-list  class="b br p-1 mb-4" *ngFor="let data of bankAccount; let i = index;">
+                <ion-radio-group class="no-ripple" [(ngModel)]="autoManufacturers">
+                  <ion-item lines="none">
+                  <ion-label class="sz-3 fw-2 black">{{data?.account_name}}<br><span class="sz-2 fw-1 grey-d">A/c No. XXXX-XXXX-{{slice(data?.account_no)}}</span>
+                  </ion-label><br>
+                  <ion-radio style="float: right; display: inline-flex;" color="danger" [value]="data?.bank_id"></ion-radio>
+                </ion-item>
+                <div (click)="presentAlertConfirm(i, data.bank_id)" class="trash ion-text-right">
+                  <ion-icon color="danger" name="trash-outline"></ion-icon>
+                </div>
+                </ion-radio-group>
+              </ion-list>
+
+            <!-- <input type="radio" id="male" name="gender" value="male" onblur="myFunction()"> -->
+          </ion-col>
+        </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <div>
+      <input class="b br" placeholder="Enter transfer amount" type="tel" currencyMask
+        [options]="{ prefix: '$ ', thousands: ',', decimal: '.' }" [(ngModel)]="transferamount" class="crr-input ion-text-center">
+    </div>
+    <ion-card-content class="wallet-balance">
+      <ion-button color="danger" expand="block" mode="ios" (click)="save()">Proceed</ion-button>
+      <p class="sm-title">OR</p>
+      <ion-button color="danger" expand="block" mode="ios" (click)="addAccount()">Add New Account</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+</ion-grid>
+</ion-content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<ion-header class="header-section">
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button slot="start" defaultHref=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-content class="wallet">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <p class="headings">Wallet to Bank <br><b>Transfer</b></p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <p class="payment"><span>${{amount | number:'1.2-2'}}</span></p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label class="label">Saved Banks</ion-label>
+          <ion-select>
+            <ion-select-option value="pnb">PNB</ion-select-option>
+            <ion-select-option value="sbi">SBI</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-input placeholder="Enter Amount" name="cashValue" type="number"></ion-input>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>-->
+
+
+
+
+
+
+
+
+
+
+
+

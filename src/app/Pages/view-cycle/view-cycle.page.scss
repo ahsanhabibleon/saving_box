@@ -1,0 +1,71 @@
+.upper_box{
+    text-align: center;
+    margin: 30px;
+    font-size: 20px;
+    h1{
+        font-size: 85px;
+    }
+    span{
+      padding: 15px;
+      background-color: #cf3c4f;
+      color: white;
+      border-radius: 10px;
+    }
+}
+.static{
+    font-size: 30px;
+}
+.profile_tag{
+  width: 60px;
+    img{
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        border: 2px solid rgb(214, 51, 51);;
+    }
+}
+
+.cylce_info{
+    margin-top: 30px;
+}
+.members{
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  //align-items: center;
+
+}
+.user_name{
+  font-size: 11px;
+  overflow-wrap: break-word;
+   word-wrap: break-word;
+  overflow:hidden;
+   white-space:initial;
+   //width: 80px;
+}
+.user_list{
+  padding: 0 5px 0 0;
+}
+.add_icon{
+    background-color: #eb445a;
+    color: #fff;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    border-radius: 30px;
+ion-icon{
+    font-size: 30px;
+}
+}
+h5{
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    ion-icon{
+        font-size: 27px;
+        font-weight: 600;
+    }
+}

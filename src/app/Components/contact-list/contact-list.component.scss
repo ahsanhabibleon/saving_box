@@ -1,0 +1,23 @@
+.user_data {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 5px;
+  background: transparent;
+}
+.content{
+  padding:10px
+}
+h2 {
+  margin: 0!important;
+  font-size: 12px;
+  font-weight: 500;
+}
+p {
+  color: #ccc;
+  margin: 5px 0 0;
+  font-size: 12px;
+}
+ion-toolbar{
+  --border-width: 0px !important;
+}

@@ -1,0 +1,46 @@
+
+<ion-content class="ion-padding">
+  <ion-grid *ngIf="processType == 0" class="ion-margin ion-text-center">
+    <ion-row>
+      <ion-col size="12">
+        <ion-icon class="icon" name="checkmark-circle" color="success"></ion-icon>
+        <h3 class="black">Your identity is verified</h3>
+      </ion-col>
+      <ion-col size="12" >
+        <h4>Congrats! We can move on and setup your wallet.</h4>
+      </ion-col>
+      <ion-col size="12">
+        <ion-button color="danger" mode="ios" expand="block">Next</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid *ngIf="processType == 1" class="ion-margin ion-text-center">
+    <ion-row>
+      <ion-col size="12">
+        <ion-icon class="icon" name="checkmark-circle" color="success"></ion-icon>
+        <h3 class="black">Your wallet is ready</h3>
+      </ion-col>
+      <ion-col size="12">
+        <h4>Bank Details to be shared later</h4>
+      </ion-col>
+      <ion-col  size="12">
+        <ion-button color="danger" mode="ios" expand="block"  (click) ="dismiss()">Next</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid *ngIf="processType == 2" class="ion-margin ion-text-center">
+    <ion-row>
+      <ion-col size="12">
+        <ion-icon class="icon" name="checkmark-circle" color="success"></ion-icon>
+        <h3 class="black">Your bank account is verified</h3>
+      </ion-col>
+      <ion-col size="12">
+        <h4>Congrats! You're all setup! Tap + button on your dashboard to start saving and meet your spending goals</h4>
+      </ion-col>
+      <ion-col  size="12">
+        <ion-button color="danger" mode="ios" expand="block" (click) ="dismiss()">Next</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

@@ -1,0 +1,36 @@
+
+<ion-header #header class="header-bottom-100 m-0">
+  <ion-toolbar class="mt-4 p-2" mode="ios">
+    <ion-buttons slot="start">
+      <ion-button color="danger" class="pt-2" (click)="pop()" mode="md">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="red fw-4 sz-4 mt-3 pb-4">Added Cards</ion-title>
+    <ion-buttons slot="end">
+      <ion-button  class="add-btn pt-2" (click)="addPayment()">
+        <ion-icon color="danger" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true" scrollEvents="true" [appHideHeader]="header">
+  <ion-grid style="margin-top: 5px;">
+    <div *ngFor="let card of cards; let i = index;" class="b br mt-2 mr-3 ml-3 pt-1 pb-1 black">
+      <ion-row class="bank-card">
+        <ion-col size="10">
+          <b class="black sz-4">{{card.brand.toUpperCase()}}</b><br>
+          <span class="grey-d sz-3 mb-2">XXXX-XXXX-XXXX-{{card.last4}}</span><br>
+          <span class="grey sz-1">{{card.exp_month}}/{{card.exp_year}}</span>
+        </ion-col>
+        <ion-col size="2">
+          <div (click)="presentAlertConfirm(i, card.card_id)" class="trash ion-text-right">
+            <ion-icon color="danger" name="trash-outline"></ion-icon>
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-grid>
+</ion-content>

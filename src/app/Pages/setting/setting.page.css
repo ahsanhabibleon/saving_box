@@ -1,0 +1,76 @@
+.header_box {
+  background-color: #e54744;
+  position: absolute;
+  z-index: 999;
+  top: 0px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 0px 0px 180px 0px;
+}
+
+.header_box img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+ion-content {
+  --background: #fff;
+}
+
+h4 {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #fff;
+  width: 100%;
+}
+
+.profile_img {
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.profile_img ion-icon {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  font-size: 20pxcolor;
+  background: #fff;
+  font-size: 16px;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.logout {
+  position: absolute;
+  right: 5px;
+  font-size: 36px;
+  top: 10px;
+  color: #fff;
+}
+
+.info-box {
+  position: absolute;
+  z-index: 9999;
+  top: 250px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+ion-item {
+  --background: transparent;
+  margin-bottom: 20px;
+}
+/*# sourceMappingURL=setting.page.css.map */

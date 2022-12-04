@@ -1,0 +1,49 @@
+<ion-header #header class="header-bottom-100 m-0">
+  <ion-toolbar class="mt-2 p-2" mode="ios">
+    <ion-back-button color="danger" slot="start" mode="md"></ion-back-button>
+    <ion-title class="red fw-4 sz-4 mt-3 pb-4">Box Analytics</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <div class="gauge">
+    <ngx-gauge
+      type="full"
+      [label]="gaugeLabel"
+      [value]="gaugeValue"
+      [thick]="15"
+      [min]="0"
+      [max]="max"
+      [foregroundColor]="backgroundcolor"
+      [append]="gaugeAppendText"
+      [prepend]="gaugePrependText"
+    >
+    </ngx-gauge>
+  </div>
+  <div class="member_list ion-margin-top">
+    <h5>Group Savings</h5>
+
+    <div>
+      <ion-grid class="users" *ngFor="let data of groupuser">
+        <ion-row>
+          <ion-col size="3">
+            <p class="name">{{data.name}}</p>
+          </ion-col>
+
+          <ion-col style="position: relative;" size="6">
+            <progress-bar
+              style="position: absolute;top: 50%; width: 100%; transform: translateY(-50%);"
+              progress="{{getPercenage(data.total_paid,data.total_amount)}}"
+              [color]="'#cf3c4f'"
+            >
+            </progress-bar>
+          </ion-col>
+          <ion-col size="3">
+            <div>
+              <h4 class="ammount">$ {{data.total_paid}}</h4>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</ion-content>

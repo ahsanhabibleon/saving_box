@@ -1,0 +1,74 @@
+.header {
+  --background: #e54744;
+  color: #fff;
+  font-weight: bold;
+}
+
+.list {
+  --ion-background-color: rgb(255, 234, 237);
+}
+
+.notifiy {
+  --ion-background-color: #fff;
+  border: 5px solid #fff;
+  margin-bottom: 3px;
+}
+
+.notifiy span {
+  font-size: 12px;
+  display: block;
+  word-spacing: 3px;
+}
+
+.notifiy .inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.notifiy .inner .img {
+  min-width: 50px;
+  margin-right: 10px;
+}
+
+.notifiy .inner img {
+  height: 50px;
+  border-radius: 50%;
+  width: 50px;
+}
+
+.notify_btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.notify_btn ion-button {
+  font-size: 12px;
+}
+
+h3 {
+  text-align: center;
+  margin-top: 0px;
+}
+
+.payment_btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.payment_btn ion-button {
+  font-size: 12px;
+  width: 120px;
+}
+/*# sourceMappingURL=tab2.page.css.map */

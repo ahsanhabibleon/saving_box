@@ -1,0 +1,31 @@
+
+.input{
+    width: 100%;
+}
+.heading-box {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  h4 {
+    margin-bottom:50px;
+    font-weight: bold;
+    font-size:22px;
+  }
+
+  img {
+    width: 300px;
+    margin-bottom: 50px;
+  }
+
+  ion-button {
+    --background: #fff;
+    color: #e54744;
+    width: 100%;
+    margin-top: 20px;
+    --background-activated: rgb(243, 184, 184);
+  }
+}

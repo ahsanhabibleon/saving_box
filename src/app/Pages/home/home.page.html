@@ -1,0 +1,77 @@
+<ion-header #header class="header-bottom-100">
+  <ion-toolbar class="ion-padding-top" [color]="isRecording?'danger':'light'">
+        <!-- <ion-icon  slot="start" (click)="openMenu()" color="light" name="menu-sharp" class="menu-icon"></ion-icon>-->
+        <ion-buttons slot="start">
+          <ion-button [color]="isRecording?'light':'danger'" (click)="pop()" mode="md">
+            <ion-icon name="arrow-back"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        <div class="search" slot="">
+          <ion-input class="ion-margin-start" [(ngModel)]="searchItem" placeholder="Search Item"></ion-input>
+          <div style="display: flex">
+            <!-- <ion-icon class="ion-margin-end" name="camera-outline"></ion-icon> -->
+            <ion-icon [color]="'danger'" class="header-icon" name="search-outline" (click)="search(searchItem)"></ion-icon>
+            <ion-icon [color]="'danger'" class="header-icon" name="mic" (click)="startListen()"></ion-icon>
+            <!-- <ion-icon class="header-icon" name="mic"*ngIf="isIos()" (click)="presentListenAlert()"></ion-icon> -->
+          </div>
+        </div>
+    <ion-icon slot="end" [color]="isRecording?'light':'danger'" (click)="toCart()" name="cart-outline" class="header-icon"></ion-icon>
+    <ion-icon slot="end" [color]="isRecording?'light':'danger'" (click)="toHistory()" name="logo-dropbox" class="header-icon"></ion-icon>
+    <ion-icon (click)="openChats()" slot="end" class="header-icon" [color]="isRecording?'light':'danger'" name="chatbubble-ellipses-outline"></ion-icon>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content scrollEvents="true" [appHideHeader]="header" fullscreen="true">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div class="category-items-container">
+    <div class="category-item" (click)="getProductList()">
+      <div class="icon">
+        <ion-icon name="home"></ion-icon>
+      </div>
+      <div class="label"> Home </div>
+    </div>
+    <div *ngFor="let item of categoryList" class="category-item" (click)="openCategory(item)">
+      <div class="icon">
+        <img [src]="baseUrl+item.featuredImage"/>
+      </div>
+      <div class="label"> {{item?.name}} </div>
+    </div>
+  </div>
+
+  <ion-slides pager="true" [options]="slideOptsOne" class="slides">
+    <ion-slide *ngFor="let i of [1,2,3,4]">
+      <img src="assets/Imgs/headphones.jpg"/>
+    </ion-slide>
+  </ion-slides>
+
+  <!-- Trending Products -->
+  <div class="product-list-container">
+    <p class="section-header">Trending Products</p>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" *ngFor="let product of productList | slice:0:20">
+          <app-product-info [product]="product" [showOption]="false"></app-product-info>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- <ion-row>
+      <ion-col *ngFor="let product of productList | slice:0:20">
+        <app-product-info [product]="product" [showOption]="false"></app-product-info>
+      </ion-col>
+    </ion-row> -->
+  </div>
+
+  <!-- Most research products -->
+  <div class="divider"></div>
+  <div class="product-list-container">
+    <p class="section-header">Most Researched Products</p>
+    <ion-row>
+      <ion-col *ngFor="let product of productList | slice:0:20">
+        <app-product-info [product]="product"></app-product-info>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

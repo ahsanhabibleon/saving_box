@@ -1,0 +1,133 @@
+ion-content {
+  --background: white;
+  ion-datetime{
+     // height: 44px !important;
+      border-radius: 10px !important;
+  }
+  .datetime-text{
+      font-size: 16px;
+  }
+  .item-cover {
+      width: 0;
+      height: 0;
+      }
+  .title{
+      font-size: 18px;
+      font-weight: bolder;
+      //padding: 5px 0 0 0;
+      color:#e54744;
+  }
+  .date-time{
+    width: 100%;
+    --box-shadow:none;
+    align-content: center;
+    text-decoration-color:#e54744;
+    color:lightgray;
+  }
+  .btn{
+    border-radius: 20px;
+    --background:#e54744 ;
+    bottom: 0;
+  }
+  ion-grid{
+    justify-content: center;
+  ion-row{
+    .payment-option{
+      display: grid;
+      justify-items: center;
+      input[type="radio"] {
+          display: none;
+          border-radius: 5px;
+          &:checked ~ label .tick {
+              display:flex;
+          }
+      }
+      label{
+      width: 80%;
+      height: 80px;
+      padding: 20px 10px;
+      text-align: center;
+      border-radius: 10px;
+      background: rgba(238, 238, 238, 0.51);
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      justify-content: center;
+      align-items: center;
+      .tick {
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          z-index: 1;
+          background-color: rgba(255,0,0,0.5);
+          display: none;
+          &:after {
+              content: "";
+              width: 15px;
+              height: 30px;
+              margin: auto auto;
+              border: solid white;
+              border-width: 0 5px 5px 0;
+              -webkit-transform: rotate(45deg);
+              -ms-transform: rotate(45deg);
+              transform: rotate(45deg);
+              display: flex;
+            }
+      }
+  }
+}
+  }
+  .payment-method {
+      .form-control{
+        border-radius: 10px;
+        //border-color: grey;
+        border: solid 1px grey;
+        //margin: 5px 0 0 0;
+        color: grey;
+        font-size: 15px;
+        --background: white;
+      }
+      .form-control:focus {
+          //border-color: transparent;
+          box-shadow: solid 5px grey;
+      }
+
+      .form-group {
+          //margin-bottom: 5px;
+          --text-align:center;
+          ion-label{
+            --text-align:center;
+          }
+      }
+      form {
+          margin: 20px 0 0 0;
+          width: 100%;
+          text-align: center;
+      }
+      p {
+          color: #fff;
+          text-align: center;
+          b{
+              color: #fff;
+          }
+      }
+      input,select{
+          font-size: 15px !important;
+          width: 100%;
+          border-radius: 10px;
+          //border: none;
+          box-shadow: none;
+          text-align: center;
+          //height: 45px;
+          padding: 10px 10px;
+          border: 2px solid #dbdbdb !important;
+      }
+      #date-input {
+          color: white;
+          align-content: center;
+      }
+  }
+}}
+

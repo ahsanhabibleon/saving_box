@@ -1,0 +1,80 @@
+<ion-header #header class="header-bottom-100">
+  <ion-toolbar class="mt-4 p-2" mode="ios">
+    <ion-item class="item-btn" lines="none">
+      <ion-icon
+        name="close"
+        class="red pt-2"
+        slot="start"
+        (click)="pop()"
+      ></ion-icon>
+      <ion-title class="red fw-4 sz-4 mt-3 pb-4" slot="start">Order Details</ion-title>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding" scrollEvents="true" [appHideHeader]="header" fullscreen="true">
+  <ion-grid>
+    <ion-row>
+      <div class="slider">
+        <ion-slides pager="true" [options]="slideOptsOne">
+          <ion-slide>
+            <img
+            [src]="order?.product?.base_url+order?.product?.featuredImage"
+            alt=""
+          />
+          </ion-slide>
+          <ng-container *ngIf="order?.featuredImage1!==null">
+          <ion-slide>
+            <img
+            [src]="order?.product?.base_url+order?.product?.featuredImage1"
+            alt=""
+          />
+          </ion-slide>
+        </ng-container>
+          <ng-container *ngIf="order?.product?.featuredImage2!==null">
+            <ion-slide>
+              <img
+              [src]="order?.product?.base_url+order?.product?.featuredImage2"
+              alt=""
+            />
+            </ion-slide>
+          </ng-container>
+          <ng-container *ngIf="order?.product?.featuredImage3!==null">
+          <ion-slide>
+            <img
+            [src]="'https://thesavingsbox.com/api/chat-server/public/images/'+order?.product?.featuredImage3"
+            alt=""
+          />
+          </ion-slide>
+        </ng-container>
+        </ion-slides>
+      </div>
+    </ion-row>
+    <ion-row style="margin: 20px 0px 10px 30px; font-size: 14px;">
+      <ion-col>
+        <span style="font-size: 16px;"><strong>{{order?.product.title}}</strong></span><br>
+        <span>Order ID: {{order?.id}}</span><br>
+        <span>Qty: {{order?.quantity}}</span><br>
+        <span>Paid: ${{order?.subtotal}}</span><br>
+        <span *ngIf="order.vendor.business_registration_name!==null">Seller: {{order.vendor.business_registration_name}}</span>
+        <span *ngIf="order.vendor.first_name!==null">Seller: {{order.vendor.first_name}} {{order.vendor.last_name}}</span>
+        <br><span>Status: {{order?.status}}</span><br>
+        <span>Date: {{order?.date_created | date}}</span><br>
+      </ion-col>
+    </ion-row>
+   <div>
+    <p style="margin: 15px 10px 10px 35px; font-size: 16px;">Description</p>
+    <ion-row class="b br ion-margin">
+      <ion-col class="ion-padding">
+        <span style="text-align: justify; font-size: 14px;">{{order?.product.description}}</span>
+      </ion-col>
+    </ion-row>
+  </div>
+  </ion-grid>
+</ion-content>
+<ion-footer>
+  <div class="footer">
+    <ion-button color="danger" mode="ios" (click)="rateProduct()" fill="outline">Rate</ion-button>
+    <ion-button color="danger" mode="ios" *ngIf="order.vendor.business_registration_name!==null" (click)="contactVendor(order?.id, order.vendor.business_registration_name)" >Contact Seller</ion-button>
+    <ion-button color="danger" mode="ios" *ngIf="order.vendor.first_name!==null" (click)="contactVendor(order?.id, (order.vendor.first_name + ' ' + order.vendor.last_name))" >Contact Seller</ion-button>
+    </div>
+</ion-footer>

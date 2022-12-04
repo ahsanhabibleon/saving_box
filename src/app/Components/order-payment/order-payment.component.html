@@ -1,0 +1,107 @@
+<ion-header #header class="header-bottom-100">
+  <ion-toolbar class="mt-2" mode="ios">
+    <ion-item lines="none">
+      <ion-icon
+        name="close"
+        class="red pt-2"
+        slot="start"
+        (click)="close()"
+      ></ion-icon>
+      <ion-title class="red fw-4 sz-4 mt-3 pb-4" slot="start">Payment</ion-title>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+<ion-content scrollEvents="true" [appHideHeader]="header" fullscreen="true"  class="ion-padding">
+  <ion-grid class="b br mb-3">
+    <ion-row >
+      <ion-col size="4">
+        <span class="details">Shipping To: </span>
+      </ion-col>
+      <ion-col size="8">
+                <span class="details" style=" font-size: 15px;"><b>{{add.name}}</b></span><br>
+                <span class="details"style=" font-size: 14px;">{{add.address}}</span><br>
+                <span class="details" style=" font-size: 14px;">{{add.city + ', ' + add.state + ', ' + add.pinCode }}</span><br>
+                <span style="font-size: 13px;">Phone Number: {{add.mobile| mask: '(000) 000-0000'}}</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid class="b br mb-3">
+    <ion-row  style="border-top-left-radius: 5px; border-top-right-radius: 5px;padding-top: 40px; padding-left: 10px;padding-right: 10px;">
+      <ion-col size="8">
+        <span class="details">Items({{totalItems}}):</span>
+      </ion-col>
+      <ion-col size="4">
+        <span class="details">${{grandTotal}}</span>
+      </ion-col>
+    </ion-row>
+    <ion-row style=" padding-left: 10px;padding-right: 10px;">
+      <ion-col size="8">
+        <span class="details">Total before tax: </span>
+      </ion-col>
+      <ion-col size="4">
+        <span class="details">${{grandTotal}}</span>
+      </ion-col>
+    </ion-row>
+    <ion-row  style=" padding-left: 10px;padding-right: 10px;">
+      <ion-col size="8">
+        <span class="details">Tax to be collected: </span>
+      </ion-col>
+      <ion-col size="4">
+        <span class="details">${{dedAmount}}</span>
+      </ion-col>
+    </ion-row>
+    <ion-row style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;padding-bottom: 40px; padding-left: 10px;padding-right: 10px;">
+      <ion-col size="8">
+        <span class="details"><b>Order Total:</b> </span>
+      </ion-col>
+      <ion-col size="4">
+        <span class="details"><b>${{finalTotal}}</b></span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid class="b br mb-3">
+    <ion-row class="ion-text-center" style="border-top-left-radius: 5px; border-top-right-radius: 5px; font-size: 16px;padding-top:40px;" >
+      <ion-col>
+        <p class="sz-3 fw-2 black">Payment Method</p>
+      </ion-col>
+    </ion-row>
+    <ion-row style="border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; padding-bottom: 40px;">
+      <ion-col>
+        <ion-radio-group class="no-ripple" (ionChange)="showCard($any($event.target).value)">
+          <ion-row>
+            <ion-col size="12">
+              <ion-item lines="none">
+                <ion-label class="sz-2 fw-2 black">Card Payment</ion-label>
+                <ion-radio  mode="md" slot="start" value="cards"></ion-radio>
+              </ion-item>
+            </ion-col>
+            <ion-col *ngIf="selection === true"  size="12">
+              <ion-select class="b br m-2" (ionChange)="getCardId($any($event.target).value, false)" interface="action-sheet" placeholder="Select card">
+                <ion-select-option *ngFor="let data of cards" [value]="data.card_id">{{data.brand}} XXXX-XXXX-{{data.last4}}</ion-select-option>
+              </ion-select>
+            </ion-col>
+            <ion-col *ngIf="disCard === true && selection === true" size="12">
+              <ion-row >
+                <ion-button style="margin: 20px; width: 100%;" (click)="navigateToAddCard()" color="danger">Add Card</ion-button>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="12">
+              <ion-item lines="none">
+                <ion-label class="sz-2 fw-2 black">Wallet Cash</ion-label>
+                <ion-radio mode="md" slot="start" value="wallet"></ion-radio>
+              </ion-item>
+            </ion-col>
+            <ion-col size="12">
+              <span *ngIf="selection===false" class="sz-3 grey-d m-4 ion-text-center">Available Amount: <b>${{walletCash}}</b></span>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-button [disabled]="!button" style="margin: 20px; width: 100%;" (click)="payment()" color="danger">Pay: ${{finalTotal}}</ion-button>
+          </ion-row>
+          </ion-radio-group>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,242 @@
+<ion-header #header class="header-bottom-100 m-0">
+  <ion-toolbar class="mt-4 p-2" mode="ios">
+    <ion-title class="red fw-4 sz-4 mt-3 pb-4">Create Box</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true" scrollEvents="true" [appHideHeader]="header">
+
+  <ng-container *ngIf="payment_status=='0'">
+    <div >
+      <app-un-authorized></app-un-authorized>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="payment_status!='0'">
+<form class="mt-3" [formGroup]="newCycleForm">
+    <div class="form-group">
+      <ion-label class="grey ml-1">Title</ion-label>
+      <ion-input
+        type="text"
+        class="b br mt-2 mb-4"
+        formControlName="title"
+        id="name"
+        placeholder="Title"
+      ></ion-input>
+    </div>
+    <p
+      class="error sz-1 ml-1"
+      *ngIf="newCycleForm.get('title').hasError('required') && newCycleForm.get('title').touched"
+    >
+      Enter title.
+    </p>
+
+    <div class="form-group">
+      <ion-label class="grey ml-1">Starting Date</ion-label>
+
+      <ion-datetime
+      class="b br mt-2 mb-4"
+        displayFormat="MM-DD-YYYY"
+        formControlName="date"
+        max="{{newDate}}" min="{{today}}"
+        pickerFormat="MM-DD-YYYY"
+        placeholder="Select Date"
+      ></ion-datetime>
+    </div>
+    <p
+      class="error sz-1 ml-1"
+      *ngIf="newCycleForm.get('date').hasError('required') && newCycleForm.get('date').touched"
+    >
+      Select starting date.
+    </p>
+
+    <div class="form-group">
+      <ion-label class="grey ml-1">Payout Frequency</ion-label>
+
+      <ion-select
+      class="b br mt-2 mb-4"
+        placeholder="How do you want your payout?"
+        formControlName="deliver"
+        interface="action-sheet"
+      >
+        <ion-select-option value="equal payout">Equal Payout</ion-select-option>
+        <!-- <ion-select-option value="rotational">Rotational</ion-select-option> -->
+      </ion-select>
+    </div>
+    <p
+      class="error sz-1 ml-1"
+      *ngIf="newCycleForm.get('deliver').hasError('required') && newCycleForm.get('deliver').touched"
+    >
+      Select Payout Frequency.
+    </p>
+
+    <div class="form-group">
+      <ion-label class="grey ml-1">Box Duration</ion-label>
+
+      <ion-select
+      class="b br mt-2 mb-4"
+        placeholder="Select number of months"
+        interface="action-sheet"
+        formControlName="cycledur"
+      >
+        <ion-select-option value="1">1</ion-select-option>
+        <ion-select-option value="2">2</ion-select-option>
+        <ion-select-option value="3">3</ion-select-option>
+        <ion-select-option value="4">4</ion-select-option>
+        <ion-select-option value="5">5</ion-select-option>
+        <ion-select-option value="6">6</ion-select-option>
+        <ion-select-option value="7">7</ion-select-option>
+        <ion-select-option value="8">8</ion-select-option>
+        <ion-select-option value="9">9</ion-select-option>
+        <ion-select-option value="10">10</ion-select-option>
+        <ion-select-option value="11">11</ion-select-option>
+        <ion-select-option value="12">12</ion-select-option>
+      </ion-select>
+    </div>
+    <p
+      class="error sz-1 ml-1"
+      *ngIf="newCycleForm.get('cycledur').hasError('required') && newCycleForm.get('cycledur').touched"
+    >
+      Select Box duration.
+    </p>
+    <div class="form-group">
+      <ion-label class="grey ml-1">Box Goal</ion-label>
+      <ion-select
+      class="b br mt-2 mb-4"
+        placeholder="Select Box Goal"
+        interface="action-sheet"
+        formControlName="goal"
+      >
+        <ion-select-option value="Home Imporvement"
+          >Home Improvement</ion-select-option
+        >
+        <ion-select-option value="Travel/Vacation"
+          >Travel/Vacation</ion-select-option
+        >
+        <ion-select-option value="Buying a House">Buying a House</ion-select-option>
+        <ion-select-option value="Buying a Car">Buying a Car</ion-select-option>
+        <ion-select-option value="Debt Repayment">Debt Repayment</ion-select-option>
+        <ion-select-option value="Relocation">Relocation</ion-select-option>
+        <ion-select-option value="Wedding">Wedding</ion-select-option>
+        <ion-select-option value="Education">Education</ion-select-option>
+        <ion-select-option value="Shopping">Shopping</ion-select-option>
+        <ion-select-option value="Other">Other</ion-select-option>
+      </ion-select>
+    </div>
+    <p
+      class="error sz-1 ml-1"
+      *ngIf="newCycleForm.get('goal').hasError('required') && newCycleForm.get('goal').touched"
+    >
+      Select Box Goal.
+    </p>
+    <div class="form-group" *ngIf="newCycleForm.value.goal == 'other'">
+      <ion-label class="grey ml-1">Add Box Goal</ion-label>
+      <ion-input
+      class="b br mt-2 mb-4"
+        type="text"
+        class="form-control"
+        formControlName="addgoal"
+        placeholder="Add box goal"
+      ></ion-input>
+    </div>
+    <div>
+      <p
+        class="error sz-1 ml-1"
+        *ngIf="newCycleForm.value.goal == 'other' && newCycleForm.get('addgoal').hasError('required') && newCycleForm.get('addgoal').touched"
+      >
+        Enter Box Goal.
+      </p>
+    </div>
+    <div class="form-group">
+      <ion-label class="grey ml-1">Box Amount</ion-label>
+      <!-- <span *ngIf="showAmount">$</span> -->
+      <input
+      class="b br mt-2 mb-4"
+        type="text"
+        currencyMask
+        [(ngModel)]="amount"
+        placeholder="Box Amount in $ (ex. 50.00)"
+        style="text-align: center !important;"
+        formControlName="amount"
+      >
+      <!-- <input
+      class="ammount"
+      type="text"
+      mask="0*.00"
+      placeholder="Box Amount in $ (ex. 50.00)"
+      class="form-control"
+      style="text-align: center !important;"
+      formControlName="amount"
+    > -->
+      <!-- <input type="text"
+      mvndrMatCurrencyFormat
+      [allowNegative]="false"
+      [currencyCode]="'USD'"
+      [value]="amount"
+      (blur)="updateUSAmount($event)"
+      formControlName="amount"
+      placeholder="Box Amount in $ (ex. 50.00)"/>-->
+    </div>
+    <p
+      class="error sz-1 ml-1"
+      *ngIf="newCycleForm.get('amount').hasError('required') && newCycleForm.get('amount').touched"
+    >
+      Please enter amount.
+    </p>
+    <div *ngIf="selectedUser > 0 && newCycleForm.controls.cycle_type.value==='group'" >
+      <div class="selectedUser" *ngFor="let memdata of selectedUser">
+        <img class="rounded-circle active" src="assets/img/profile-picc.png" width="40px" *ngIf="memdata.profile_image == '' || memdata.profile_image == null">
+        <img class="rounded-circle active" src="{{memdata.profile_image}}" width="40px" height="40px" *ngIf="memdata.profile_image != ''">
+        <small class="mt-2 d-block">{{memdata.name}} </small>
+      </div>
+      </div>
+    <div class="ion-margin-top">
+      <ion-label class="grey ml-1">Savings plan for:</ion-label>
+      <ion-radio-group mode="md" formControlName="cycle_type">
+        <ion-item lines="none">
+          <ion-radio color="danger" checked="true" value="personal" mode="md"></ion-radio>
+          <ion-label style="padding-left: 5px">Personal Box</ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-radio checked="true" color="danger" value="group" mode="md"></ion-radio>
+          <ion-label style="padding-left: 5px">Group Box</ion-label>
+        </ion-item>
+      </ion-radio-group>
+    </div>
+    <div *ngIf="newCycleForm.controls.cycle_type.value==='group'">
+      <ion-button expand="block" color="danger" mode="ios" (click)="addmembers()">
+        <ion-icon slot="start" name="add"></ion-icon>
+        Members
+      </ion-button>
+    </div>
+
+    <div class="ion-margin-top">
+      <ion-label class="grey ml-1">Contibution:</ion-label>
+      <ion-radio-group mode="md" formControlName="payment_cycle">
+        <ion-item lines="none">
+          <ion-radio checked="true" value="0" color="danger" mode="md"></ion-radio>
+          <ion-label style="padding-left: 5px">Bi-weekly</ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-radio checked="true" value="1" color="danger" mode="md"></ion-radio>
+          <ion-label style="padding-left: 5px">Monthly</ion-label>
+        </ion-item>
+      </ion-radio-group>
+    </div>
+    <div class="ion-margin-top">
+      <ion-label class="grey ml-1">Payment Method:</ion-label>
+      <ion-radio-group mode="md" formControlName="payment_transaction">
+        <ion-item lines="none">
+          <ion-radio checked="true" value="0" color="danger" mode="md"></ion-radio>
+          <ion-label style="padding-left: 5px">Automatic</ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-radio checked="true" value="1" color="danger" mode="md"></ion-radio>
+          <ion-label style="padding-left: 5px">Manual</ion-label>
+        </ion-item>
+      </ion-radio-group>
+    </div>
+  </form>
+  <ion-button expand="block" mode="ios" type="submit" color="danger" (click)="createbox()" [disabled]="!newCycleForm.valid"  > Create New Box </ion-button>
+  </ng-container>
+  </ion-content>

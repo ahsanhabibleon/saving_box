@@ -1,0 +1,68 @@
+ion-input {
+  background: #fff;
+  border-radius: 50px;
+  --padding-start: 10px;
+  margin-bottom: 16px;
+}
+
+#city::-webkit-input-placeholder {
+  --color: black;
+  --opacity: 1;
+}
+
+#city:-ms-input-placeholder {
+  --color: black;
+  --opacity: 1;
+}
+
+#city::-ms-input-placeholder {
+  --color: black;
+  --opacity: 1;
+}
+
+#city::placeholder {
+  --color: black;
+  --opacity: 1;
+}
+
+ion-datetime {
+  background: #fff;
+  border-radius: 50px;
+  margin-bottom: 16px;
+}
+
+ion-select {
+  background: #fff;
+  border-radius: 50px;
+  margin-bottom: 16px;
+}
+
+.pic {
+  position: relative;
+}
+
+.pic img {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+}
+
+.pic .profile-error {
+  color: red;
+}
+
+.pic ion-icon {
+  position: absolute;
+  z-index: 99;
+  left: 0;
+  right: -50px;
+  margin: auto;
+  bottom: 3px;
+  background: #ffaaaa;
+  color: #fff;
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+  border-radius: 50px;
+}
+/*# sourceMappingURL=edit-profile.page.css.map */

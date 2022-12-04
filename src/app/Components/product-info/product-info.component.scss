@@ -1,0 +1,58 @@
+.product-image{
+    margin: 0 auto;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 1px solid rgb(170, 170, 170);
+    background-color: rgb(244, 244, 244);
+    padding: 10px;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    .options{
+        position: absolute;
+        top: 8px;
+        right: 8px;
+    }
+}
+.product{
+  // display: block;
+  max-width: 150px;
+  // position: relative;
+  // left: 5px;
+  // right: 5px;
+  margin: 0 auto;
+  .details{
+    // margin: 0 auto;
+    .price{
+      font-weight: bold;
+      font-size: 15px;
+      color: #454545;
+    }
+  .ratings-container{
+    //margin: 2px 0px 5px 0px;
+    ion-icon{
+        color: #848484;
+        font-size: 14px;
+        margin-right: 2px;
+    }
+    .gold-star{
+        color: #e4cf4b;
+    }
+  }
+  .extra-details{
+    font-size: 14px;
+    color: gray;
+  }
+  .name{
+    font-size: 15px;
+    color: rgb(53, 53, 53);
+    font-weight: 400;
+  }
+  }
+}
+p{
+    margin-top: 4px;
+    margin-bottom: 0px;
+}
+
+

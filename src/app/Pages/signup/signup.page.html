@@ -1,0 +1,141 @@
+<ion-header #header class="header-bottom" >
+  <ion-toolbar #toolbar>
+    <ion-title class="red fw-4 sz-6 mt-4 pb-4">
+      Sign Up
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" scrollEvents="true" [appHideHeader]="header">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="image" size-sm="12">
+        <ion-img alt="shopping cart" src="assets/Imgs/logo.png"></ion-img>
+      </ion-col>
+    </ion-row>
+    <form [formGroup]="signupForm">
+      <ion-row class="ion-margin">
+        <ion-col>
+          <ion-label class="grey ml-1 required">First Name</ion-label>
+          <ion-input
+            type="text"
+            formControlName="first_name"
+            placeholder="Enter First Name"
+            class="b br mt-2 mb-4"
+          ></ion-input>
+          <p
+            class="error sz-1 ml-1"
+            *ngIf="signupForm.get('first_name').hasError('required') && signupForm.get('first_name').touched"
+          >
+            First Name is required.
+          </p>
+        </ion-col>
+        <ion-col >
+          <ion-label class="grey  required">Last Name</ion-label>
+          <ion-input
+            type="text"
+            formControlName="last_name"
+            placeholder="Enter Last Name"
+            class="b br mt-2 mb-4"
+          ></ion-input>
+          <p
+            class="error sz-1 ml-1"
+            *ngIf="signupForm.get('last_name').hasError('required') && signupForm.get('last_name').touched"
+          >
+            Last Name is required.
+          </p>
+        </ion-col>
+        <ion-col>
+          <ion-label class="grey required">Email</ion-label>
+          <ion-input
+            type="email"
+            formControlName="email"
+            placeholder="Enter Email"
+            class="b br mt-2 mb-4"
+          ></ion-input>
+          <p
+          class="error sz-1 ml-1"
+            *ngIf="signupForm.get('email').hasError('required') && signupForm.get('email').touched"
+          >
+            Email is required.
+          </p>
+          <p
+            class="error sz-1 ml-1"
+            *ngIf="signupForm.get('email').hasError('pattern') && signupForm.get('email').touched"
+          >
+            Invalid email address.
+          </p>
+        </ion-col>
+        <ion-col>
+          <ion-label class="grey required">Password</ion-label>
+          <ion-input
+            type="password"
+            formControlName="password"
+            placeholder="Enter Password"
+            class="b br mt-2 mb-4"
+          ></ion-input>
+          <p
+          class="error sz-1 ml-1"
+            *ngIf="signupForm.get('password').hasError('required') && signupForm.get('password').touched"
+          >
+            Password is required.
+          </p>
+        </ion-col>
+        <ion-col style="margin-bottom: 30px">
+          <ion-label class="grey required">Confirm Password</ion-label>
+          <ion-input
+            (change)="vrifyConfirmpassword()"
+            type="password"
+            formControlName="confirmpassword"
+            placeholder="Re-Enter Password"
+            class="b br mt-2 mb-4"
+          ></ion-input>
+          <p
+          class="error sz-1 ml-1"
+            *ngIf="signupForm.get('confirmpassword').hasError('required') && signupForm.get('confirmpassword').touched"
+          >
+            Enter confirm password.
+          </p>
+          <p class="error sz-1 ml-1" *ngIf="passwordCheck">
+            Password and Confirm Password not matched.
+          </p>
+        </ion-col>
+        <ion-row class="ion-text-center">
+          <ion-checkbox
+            color="danger"
+            style="top: 3px;position: relative; width: 18px; height: 18px; margin-right: 5px;"
+            mode="ios"
+            [ngModelOptions]="{standalone: true}"
+            [(ngModel)]="checkBoxConfirms"
+          ></ion-checkbox>
+          <span class="black sz-2 ion-text-center"
+            >By checking the box you agree to<br><u><b (click)="navigate() "> Our term of service</b></u> and
+            <u><b (click)="navigate() "> Privacy Policy</b></u> <br>as well as our partner<br>
+            <u><b (click)="navigate() "> Dwolla's Terms of Service</b></u> and
+            <u><b (click)="navigate() "> Privacy Policy</b></u></span
+          >
+        </ion-row>
+        <ion-col class="mb-0">
+          <ion-button
+            (click)="signup()"
+            [disabled]="!checkBoxConfirms"
+            color="danger"
+            mode="ios"
+            expand="block"
+            >Accept & Continue</ion-button
+          >
+        </ion-col>
+      </ion-row>
+    </form>
+    <!-- <ion-row class="signin ion-text-center">
+      <ion-col>
+        <p>Already have an account?<b class="route" (click)="login()">SignIn</b> </p>
+      </ion-col>
+    </ion-row> -->
+    <div class="pb-4">
+      <p class="ion-text-center">
+        Already have an account? <b (click)="login()" class="route">Sign In</b>
+      </p>
+    </div>
+  </ion-grid>
+</ion-content>

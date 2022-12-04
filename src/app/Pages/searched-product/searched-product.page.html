@@ -1,0 +1,52 @@
+<ion-header #header  class="header-bottom-100">
+  <ion-toolbar class="ion-padding-top" [color]="isRecording?'danger':'light'">
+        <ion-icon  slot="start" (click)="backToHome()" [color]="isRecording?'light':'danger'" name="arrow-back" class="menu-icon"></ion-icon>
+        <div class="search" slot="">
+          <ion-input class="ion-margin-start" [(ngModel)]="title" placeholder="Search Item" [value]="title"></ion-input>
+          <div style="display: flex">
+            <!-- <ion-icon class="ion-margin-end" name="camera-outline"></ion-icon> -->
+            <ion-icon  [color]="'danger'" class="header-icon" name="search-outline" (click)="search(title)"></ion-icon>
+            <ion-icon  [color]="'danger'" class="header-icon" name="mic" (click)="startListen()"></ion-icon>
+          </div>
+        </div>
+    <ion-icon slot="end" [color]="isRecording?'light':'danger'" (click)="toCart()" name="cart-outline" class="header-icon"></ion-icon>
+    <ion-icon slot="end" [color]="isRecording?'light':'danger'" (click)="toHistory()" name="logo-dropbox" class="header-icon"></ion-icon>
+
+  </ion-toolbar>
+
+</ion-header>
+
+
+
+<ion-content scrollEvents="true" [appHideHeader]="header" fullscreen="true" style="margin: 0;padding: 0;">
+  <ion-grid>
+    <ng-container *ngIf="resultCheck===false">
+      <ion-row class="ion-text-center ion-padding">
+        <ion-col>
+          <p style="font-size: 16px; color: grey;">No Product Found</p>
+        </ion-col>
+      </ion-row>
+    </ng-container>
+    <ng-container  *ngIf="resultCheck===true" >
+    <ion-row (click)="productDetail(item)" class="item" *ngFor='let item of data; let i = index;'>
+      <ion-col class="product-image" size="5">
+        <img style="width: 100%; height: 100%;border-radius: 5px;" [src]='item?.base_url+item?.featuredImage'/>
+      </ion-col>
+      <ion-col size="7">
+        <p style="font-size: 18px;margin: 0;"><strong>{{item.title}}</strong></p>
+        <span style="color: rgb(51, 51, 51);font-size: 14px;"><strong>Product ID: {{item?.id}}</strong></span><br>
+        <span style="color: grey;font-size: 12px;">${{item?.sale_price}}</span><br>
+        <span *ngIf="item?.vendor?.business_registration_name!==null" style="color: rgb(51, 51, 51); font-size: 12px;">{{item?.business_registration_name}}</span>
+        <span *ngIf="item?.vendor?.first_name!==null" style="color: rgb(51, 51, 51); font-size: 12px;">{{item?.vendor.first_name}} {{item?.vendor?.last_name}}</span>
+        <!-- <br><ion-button color="success" (click)="getOrderDetails(item.id)">More Details</ion-button> -->
+        <!-- <span style="font-size: 12px; color: rgb(51, 51, 51);font-weight: bold;">Delivery in 2 days by Mon</span> -->
+      </ion-col>
+      <!-- <div (click)="presentAlertConfirm(item.id, i)" class="remove">
+          <ion-icon name="trash"></ion-icon>
+          <span>Remove</span>
+      </div> -->
+    </ion-row>
+  </ng-container>
+  </ion-grid>
+  </ion-content>
+

@@ -1,0 +1,86 @@
+<ion-header class="ion-no-border">
+<ion-toolbar>
+  <ion-buttons>
+    <ion-back-button class="bck-btn" slot="start" defaultHref="tabs/tabs/tab1"></ion-back-button>
+  </ion-buttons>
+</ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <div class="logo">
+        <img src="../../assets/Imgs/bank.svg" alt="">
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <p class="title">Enter Details</p>
+    </ion-col>
+  </ion-row>
+  <form [formGroup]="addaccount">
+    <ion-row>
+      <ion-col>
+        <ion-label class="grey">Account Holder Name</ion-label>
+          <ion-input type="text" formControlName="name" class="input b br mt-2 mb-4" placeholder="Enter Account Holder Name"></ion-input>
+      </ion-col>
+    </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-label class="grey">Account Number</ion-label>
+        <ion-input formControlName="accountno"  type="number" class="input b br mt-2 mb-4" placeholder="Enter Account Number"></ion-input>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-label class="grey">Routing Number</ion-label>
+        <ion-input formControlName="routingno" type="tel" class="input b br mt-2 mb-4" placeholder="Enter Routing Number"></ion-input>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+        <ion-button style="width: 100%;" expand="block" mode="ios" color="danger" (click)="saveAccount()">
+        Submit
+      </ion-button>
+  </ion-row>
+</form>
+</ion-grid>
+</ion-content>
+
+
+
+
+
+
+<!--<form  [formGroup]="addaccount">
+<div class="form-group">
+  <ion-label>Account Holders Name</ion-label>
+  <ion-input
+    type="text"
+    class="form-control"
+    id="email"
+    placeholder="Account Holder Name"
+    formControlName="name"
+  ></ion-input>
+</div>
+<div class="form-group">
+  <ion-label>Account Number</ion-label>
+  <ion-input
+    type="text"
+    id="tel"
+    placeholder="Account Number"
+    formControlName="account_no"
+  ></ion-input>
+</div>
+<div class="form-group">
+  <ion-input
+    type="text"
+    id="tel"
+    placeholder="Routing Number"
+    formControlName="routing_no"
+  ></ion-input>
+</div>
+<button ion-button (click)="SaveAccount()"
+class="form-control text-center confirm-btn btn btn-default btn-lg">Submit</button>
+</form>-->
+

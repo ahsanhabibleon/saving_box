@@ -1,0 +1,118 @@
+<ion-header mode="md">
+  <ion-toolbar mode="md">
+    <ion-item lines="none">
+      <img
+        (click)="navigate()"
+        slot="start"
+        class="user_image mr-0"
+        [src]="authservice?.currentUserValue?.profile_image=='' || authservice?.currentUserValue?.profile_image==null?'assets/Imgs/profile-picc.png':imageUrl+authservice?.currentUserValue?.profile_image"
+      />
+      <!-- <img (click)="navigate()" *ngIf="authservice?.currentUserValue?.profile_image!=null"
+      slot="start"
+      class="user_image mr-0"
+      [src]="authservice?.currentUserValue?.profile_image"
+    /> -->
+      <div class="w-100 justify-content-center total-am">
+        <h4 class="red fw-4 sz-6 mt-4 pb-4">Dashboard</h4>
+        <span><b>${{totalTrans}}</b></span>
+      </div>
+      <ion-icon
+        class="red sz-8 ml-0 mr-4 fw-3"
+        name="cart-outline"
+        (click)="openshop()"
+        slot="end"
+      ></ion-icon> </ion-item
+    ><br />
+  </ion-toolbar>
+  <ion-segment
+    *ngIf="payment_status=='0'"
+    mode="md"
+    (ionChange)="segmentChanged($event)"
+    [(ngModel)]="cycleType"
+  >
+    <ion-segment-button class="black" value="going">
+      <ion-label class="fw-3">ONGOING</ion-label>
+    </ion-segment-button>
+    <ion-segment-button class="black" value="completed">
+      <ion-label class="fw-3">COMPLETED</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+<ion-content class="ion-padding ion-text-center">
+  <div
+    *ngIf="payment_status!='0'"
+    [ngSwitch]="cycleType"
+    class="ion-margin-top"
+  >
+    <div *ngSwitchCase="'going'">
+      <ng-container *ngIf="onGoingList?.length!=0">
+        <div
+          class="b br p-0 mb-4"
+          *ngFor="let item of onGoingList ;let i = index"
+          (click)="viewCyle(item)"
+        >
+          <ion-item
+            *ngIf="item.cycle_status=='0'"
+            lines="none"
+            class="ion-margin-bottom cycle"
+          >
+            <ion-grid>
+              <ion-row>
+                <ion-col class="cycle" size="7">
+                  <b class="black sz-4">{{item.title}}</b>
+                  <p class="gred mt-2 sz-1 fw-2 p-0">
+                    Created: {{moment(item.created_at).format('MMMM DD YYYY')}}
+                  </p>
+                </ion-col>
+                <ion-col style="text-align: right" size="5">
+                  <b>{{getTrans(item?.trans)}}</b>
+                  <p class="sz-1 grey-d">View Transactions</p>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-item>
+        </div>
+      </ng-container>
+    </div>
+
+    <div *ngSwitchCase="'completed'">
+      <ng-container *ngIf="completedList?.length!=0">
+        <div
+          class="b br p-0 mb-4"
+          *ngFor="let item of completedList;let i = index"
+        >
+          <ion-item
+            *ngIf="item.cycle_status=='1'"
+            lines="none"
+            class="ion-margin-bottom cycle"
+          >
+            <ion-grid>
+              <ion-row>
+                <ion-col (click)="viewCyle(item)" size="10">
+                  <b class="black sz-4">{{item.title}}</b>
+                  <p class="gred mt-2 sz-1 fw-2 p-0">
+                    Created On: {{moment(item.created_at).format('MMMM DD
+                    YYYY')}}
+                  </p>
+                </ion-col>
+                <ion-col size="2">
+                  <div
+                    (click)="presentAlertConfirm(i, item.cycle_id)"
+                    class="trash sz-6 ion-text-right"
+                  >
+                    <ion-icon color="danger" name="trash-outline"></ion-icon>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+            <!-- <div>
+            </div> -->
+          </ion-item>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <div *ngIf="payment_status=='0'">
+    <app-un-authorized></app-un-authorized>
+  </div>
+</ion-content>

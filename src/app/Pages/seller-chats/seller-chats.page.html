@@ -1,0 +1,34 @@
+<ion-header >
+  <ion-toolbar mode="ios"  class="header">
+    <ion-buttons slot="start">
+      <ion-back-button color="light" mode="md" (click)="pop()"></ion-back-button>
+    </ion-buttons>
+  <ion-title>Chats</ion-title>
+</ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <!-- <div class="ion-padding"> -->
+    <ion-list *ngFor="let chat of chats; let i =index;">
+    <!-- <ion-item-sliding> -->
+      <ion-item button (click)="navigate(chat.id,chat.title,chat.chat_type,chat.users)">
+        <ion-avatar style="height: 50px; width: 50px;" slot="start" >
+          <ion-img [src]="chat.image"></ion-img>
+        </ion-avatar>
+        <ion-label style="min-width: 60%;">
+          <h2 style="font-weight: bolder;color: rgb(44, 44, 44); font-size: 14px;">{{chat.title}}</h2>
+          <p style="font-size: 12px; margin-top: 8px;"><ion-icon class="read" name="checkmark-done"></ion-icon>&nbsp;{{chat.last_message_text}}</p>
+        </ion-label>
+        <ion-label slot="end" class="ion-text-right" style="color: grey; max-width: 15%;">
+          <p style="font-size: 8px;">{{chat.updated_at | date : 'shortDate'}}</p>
+          <p>&nbsp;</p>
+        </ion-label>
+      </ion-item>
+      <!-- <ion-item-options (ionSwipe)="presentAlertConfirm(i,chat.id)" side="end">
+      </ion-item-options>
+    </ion-item-sliding> -->
+  </ion-list>
+  <!-- </div> -->
+</ion-content>

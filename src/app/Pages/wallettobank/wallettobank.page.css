@@ -1,0 +1,195 @@
+ion-content {
+  text-align: center;
+}
+
+ion-content ion-grid ion-card {
+  margin: 0 0 20px 0;
+  --background:#ffeaed;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+ion-content ion-grid ion-card input {
+  margin: 10px 0 5px 0;
+  padding: 12px;
+  width: 90%;
+  border: 1px solid grey;
+  font-size: 16px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.bck-btn {
+  color: #e54744;
+}
+
+.sm-title {
+  margin-top: 20px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #5d5d5d;
+}
+
+.monthly-date {
+  --background-color: #5d5d5d;
+  color: #eeeeee;
+  width: 100% !important;
+}
+
+.bank-list {
+  --background-color:#5d5d5d;
+}
+
+.trash {
+  text-decoration: none;
+  float: right;
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+.no-ripple {
+  --ripple-color: transparent;
+}
+
+.title {
+  color: #e54744;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.btn {
+  margin: 15px 0 15px 0;
+  --background: #e54744;
+}
+
+.header {
+  --background: #e54744;
+  color: #fff;
+}
+
+p {
+  font-size: 15px;
+  color: #fff;
+  font-weight: bolder;
+}
+
+.bck-btn {
+  color: #e54744;
+}
+
+page-wallettobank .scroll-content {
+  padding: 0px !important;
+}
+
+page-wallettobank .header-section .title {
+  padding: 15px;
+}
+
+page-wallettobank .header-section .title .toolbar-title-ios {
+  text-align: left;
+}
+
+page-wallettobank .header-ios .toolbar-background-ios, page-wallettobank .footer-ios .toolbar-background-ios {
+  background: none !important;
+  border: 0;
+}
+
+page-wallettobank .scroll-content .card {
+  border: 0;
+  -webkit-box-shadow: 0 0 black;
+          box-shadow: 0 0 black;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+page-wallettobank .scroll-content .card .card-header {
+  background: none;
+  padding: 0;
+  border: 0;
+}
+
+page-wallettobank .scroll-content .card .card-header h4 {
+  margin: 10px;
+  padding-top: 0;
+  text-align: center;
+  width: 100%;
+  font-size: 21px;
+  font-weight: bold;
+  border: 0;
+  margin-top: 0;
+}
+
+page-wallettobank .wallet ion-card-header h4 {
+  color: #e54744;
+}
+
+page-wallettobank .wallet-balance .wallet-heading {
+  position: relative;
+  top: 7px;
+}
+
+page-wallettobank .wallet-balance p {
+  font-size: 32px;
+  color: black;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+page-wallettobank .wallet-balance p span {
+  border-bottom: 1px solid #d0d0d0;
+}
+
+page-wallettobank .wallet-balance button {
+  border-radius: 5px;
+  margin-top: 10px;
+  font-size: 17px;
+  background: #e54744;
+}
+
+page-wallettobank .select-bank {
+  margin-top: 30px;
+}
+
+page-wallettobank .select-bank h4 {
+  text-align: left !important;
+}
+
+page-wallettobank .monthly-date .card-content {
+  padding: 13px 30px 14px !important;
+}
+
+page-wallettobank .input-radio label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #5d5d5d;
+  margin-left: 20px;
+}
+
+page-wallettobank .input-radio label span {
+  font-size: 14px;
+  font-weight: 600;
+  color: #9c9c9c;
+}
+
+page-wallettobank .input-radio .col {
+  position: relative;
+}
+
+page-wallettobank .input-radio input {
+  position: absolute;
+  top: 8px;
+}
+
+page-wallettobank .wallet-balance h6 {
+  color: #5d5d5d;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+page-wallettobank ion-icon {
+  font-size: 30px;
+  color: #e54744;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+/*# sourceMappingURL=wallettobank.page.css.map */

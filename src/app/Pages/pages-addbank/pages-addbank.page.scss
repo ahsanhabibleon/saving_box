@@ -1,0 +1,29 @@
+// .header-section{
+//   --border: 0px !important;
+//   --border-bottom-color: transparent !important;
+//   --background-image: none !important;
+//   --border-bottom: none !important;
+// }
+.bck-btn{
+  color: #e54744;
+}
+ion-content {
+  text-align: center;
+  .logo{
+      text-align: center;
+      img{
+          height: 170px;
+      }
+  }
+  .title{
+    margin:20px 0 5px 0;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #e54744;
+  }
+
+  .btn{
+    margin: 20px 0 0 0;
+    --background:#e54744;
+  }
+  }

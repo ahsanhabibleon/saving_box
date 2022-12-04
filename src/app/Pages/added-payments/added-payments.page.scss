@@ -1,0 +1,40 @@
+.header{
+  --background: #e54744;
+  color: #fff;
+}
+p{
+  font-size: 15px;
+  color: #fff;
+  font-weight: bolder;
+}
+.bank-card{
+  width: 100%;
+  padding:10px;
+  margin-top:8px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+.bank-name{
+  color: #e54744;
+}
+.time{
+  font-size: small;
+  color: grey;
+}
+.trash{
+  text-decoration: none;
+  float:right;
+  font-size: 24px;
+  margin-bottom: 0px;
+  font-weight: bold;
+}
+.exp-date{
+  color: grey;
+  font-size: small;
+}
+.add-btn{
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+}
+

@@ -1,0 +1,31 @@
+<ion-header #header class="header-bottom-100">
+  <ion-toolbar class="mt-4 p-2" mode="ios">
+    <ion-item class="item-btn" lines="none">
+      <ion-icon
+        name="close"
+        class="red pt-2"
+        slot="start"
+        (click)="close()"
+      ></ion-icon>
+      <ion-title class="red fw-4 sz-4 mt-3 pb-4" slot="start">Add Card</ion-title>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">
+  <ngx-interactive-paycard
+    [chipImgPath]="'../../assets/Imgs/chip.png'"
+    [logoImgPath]="'../../assets/Imgs/logo.png'"
+    [frontBgImgPath]="'../../assets/Imgs/background.jpg'"
+    [backBgImgPath]="'../../assets/Imgs/background.jpg'"
+    [cardNumberFormat]="cardNumberFormat"
+    [cardNumberMask]="cardNumberMask"
+    [cardLabels]="cardLabel"
+    [formLabels]="formLabel"
+    (submitEvent)="onSubmitEvent($event)"
+    (changeCard)="showChangesCard($event)"
+    (changeCardNumber)="showChangesCardNumber($event)"
+    >
+</ngx-interactive-paycard>
+</ion-content>

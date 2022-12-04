@@ -1,0 +1,113 @@
+<ion-header #header class="header-bottom-100 m-0">
+  <ion-toolbar class="mt-4 p-2" mode="ios">
+    <ion-buttons slot="start">
+      <ion-button color="danger" class="pt-2" (click)="pop()" mode="md">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="red fw-4 sz-4 mt-3 pb-4">Upload Documents</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" scrollEvents="true" [appHideHeader]="header">
+  <ion-grid class="ion-margin">
+    <ion-row>
+      <ion-col>
+        <ion-label class="grey-d">Document Type</ion-label>
+        <div class="b br mt-2 mb-4">
+          <ion-item lines="none">
+            <ion-label class="grey">Select Type</ion-label>
+          <ion-select name="doctype" [(ngModel)]="doctype" placeholder="Select" interface="action-sheet">
+            <ion-select-option value="licence">Drivers License</ion-select-option>
+            <ion-select-option value="passport">Passport</ion-select-option>
+            <ion-select-option value="stateid">State ID</ion-select-option>
+          </ion-select>
+        </ion-item>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-label class="grey-d">Document Number</ion-label>
+        <ion-input class="b br mt-2 mb-4" type="text" name="idnumber" placeholder="Enter Document Number" [(ngModel)]="idnumber"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-label class="grey-d">Country</ion-label>
+        <ion-input class="b br mt-2 mb-4" type="text" name="country" placeholder="Enter Country" [(ngModel)]="country"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-label class="grey-d">State</ion-label>
+        <ion-input class="b br mt-2 mb-4" type="text" name="state" placeholder="Enter State" [(ngModel)]="state"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-label class="grey-d">Issue Date</ion-label>
+        <div class="b br mt-2 mb-4">
+          <ion-item lines="none" class="item-background-color">
+            <ion-label class="grey sz-2">Select Date</ion-label>
+            <ion-datetime
+            value="1994-12-15T13:47:20.789+5:00"
+            display-timezone="utc"
+              displayFormat="MMM DD, YYYY"
+              pickerFormat="MMM-DD-YYYY"
+              placeholder="Feb 21, 2021"
+              name="issueDate"
+              [(ngModel)]="issueDate"></ion-datetime>
+              <ion-icon name="caret-down-outline" style="font-size: 14px;"></ion-icon>
+          </ion-item>
+        </div>
+
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-label class="grey-d">Expiry Date</ion-label>
+        <div class="b br mt-2 mb-4">
+          <ion-item lines="none" class="item-background-color">
+            <ion-label class="grey sz-2">Select Date</ion-label>
+            <ion-datetime
+            value="1994-12-15T13:47:20.789+5:00"
+            display-timezone="utc"
+              placeholder="Select"
+              displayFormat="MMM DD, YYYY"
+              pickerFormat="MMM-DD-YYYY"
+              placeholder="Feb 21, 2021" max="2035-01-01" name="expdate" [(ngModel)]="expdate"></ion-datetime>
+              <ion-icon name="caret-down-outline" style="font-size: 14px;"></ion-icon>
+          </ion-item>
+        </div>
+
+      </ion-col>
+    </ion-row>
+    <!-- <div class="inner-sign" >
+      <ion-icon
+        name="add"
+        style="color: #c5b5b4; font-size: 42px"
+      ></ion-icon> -->
+      <!-- <button ion-button outline color="danger" style="width: 70%; margin-top: 25px;" (click)="selectImage()">Add Document</button> -->
+      <!-- <div class="form-group"  >
+                <label>Upload Driving Liecence</label>
+              </div> -->
+    <ion-row>
+      <ion-col>
+        <ion-button class="ion-margin-bottom" (click)="selectImage()" mode="ios" expand="block" color="danger">
+          <ion-icon name="add"  slot="start"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <img *ngIf="imageUpload !=''" style="height: 250px; padding: 22px" [src]="imageUpload" width="100%"/>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button color="danger"  (click)="upload()" expand="block" mode="ios">Upload</ion-button>
+      </ion-col>
+    </ion-row>
+</ion-grid>
+</ion-content>

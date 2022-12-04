@@ -1,0 +1,132 @@
+<ion-header #header class="header-bottom-100 m-0">
+  <ion-toolbar class="mt-4 p-2" mode="ios">
+    <ion-buttons slot="start">
+      <ion-button color="danger" class="pt-2" (click)="goBack()" mode="md">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="red fw-4 sz-4 mt-3 pb-4">{{title}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button  class="add-btn pt-2" (click)="staticview()">
+        <ion-icon color="danger" name="trending-up-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content class="ion-padding" [fullscreen]="true" scrollEvents="true" [appHideHeader]="header">
+  <div class="upper_box fw-4 red">
+    <span><b>${{data.trans}}</b></span>
+    <!-- <p class="ion-no-margin black ">Contribution</p> -->
+  </div>
+  <ion-label class="ion-margin-top ion-margin-bottom black pb-4 fw-3 sz-3">Members</ion-label>
+  <ion-grid class="ion-text-center members">
+    <ion-row>
+      <ion-col size="3" *ngFor="let data of data.users" class="user_list">
+        <div class="profile_tag" (click)="goToProfile(data.user_id)">
+          <img [src]="data.image!=''?data.image:'assets/Imgs/profile-picc.png'" alt="" /><br>
+          <span class="user_name grey-d fw-3">{{data.name}}</span>
+      </div>
+      </ion-col>
+      <ion-col *ngIf="data.cycle_type === 'group'" size="3">
+        <div class="add_icon" *ngIf="isPayment === 0" (click)="addMember()">
+          <ion-icon name="add"></ion-icon>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!-- <div class="ion-text-center members">
+    <div *ngFor="let data of data.users" class="user_list">
+      <div class="profile_tag" (click)="goToProfile(data.user_id)">
+          <img [src]="data.image" alt="" /><br>
+          <span class="user_name">{{data.name}}</span>
+      </div>
+    </div>
+    <div class="add_icon" *ngIf="isPayment === 0" (click)="addMember()">
+      <ion-icon name="add"></ion-icon>
+    </div>
+  </div> -->
+  <div style="margin-top: 20px ;" *ngIf="data.users.length > 2">
+    <ion-button mode="ios" expand="block" color="danger" (click)="createGroup()">Group Chat</ion-button>
+  </div>
+  <div class="cylce_info">
+    <ion-label class="ion-margin-top ion-margin-bottom">Start Date</ion-label>
+    <h5>
+      <ion-icon
+        name="time-outline"
+        color="danger"
+        class="ion-margin-end"
+      ></ion-icon
+      >{{moment(data.start_date).format('MMMM DD YYYY')}}
+    </h5>
+
+    <ion-label class="ion-margin-top ion-margin-bottom"
+      >Payout Frequency</ion-label
+    >
+    <h5 class="ion-margin-bottom ion-text-capitalize">
+      <ion-icon
+        name="calendar-outline"
+        color="danger"
+        class="ion-margin-end"
+      ></ion-icon
+      >{{data.deliver_every}}
+    </h5>
+    <ion-label class="ion-margin-top">Box Duration</ion-label>
+    <h5 class="ion-margin-bottom">
+      <ion-icon
+        name="calendar-clear-outline"
+        color="danger"
+        class="ion-margin-end"
+      ></ion-icon
+      >{{data.cycle_duration}}
+    </h5>
+    <ion-label class="ion-margin-top">Box Amount</ion-label>
+    <h5 class="ion-margin-bottom">
+      <ion-icon name="logo-usd" color="danger" class="ion-margin-end"></ion-icon
+      >{{data.amount}}
+    </h5>
+    <ion-label>Box Type</ion-label>
+    <h5 class="ion-text-capitalize">
+      <ion-icon
+        name="checkbox-outline"
+        color="danger"
+        class="ion-margin-end"
+      ></ion-icon
+      >{{data.cycle_payment_type}}
+    </h5>
+    <br>
+    <ion-button
+    *ngIf="data?.cycle_status!=1"
+    fill="solid"
+    color="danger"
+    expand="block"
+    mode="ios"
+    (click)="exitBox(data?.cycle_id, 'payment_check')"
+    >Quit Box
+    </ion-button>
+  </div>
+  <div>
+    <ion-grid style="margin-top: 15px;">
+      <h4><b>Transactions</b></h4>
+      <div *ngFor="let trans of transactions; let i = index;" class="b br mt-3  p-3 black">
+        <ion-row class="bank-card">
+          <ion-col size="7">
+            <b class="black sz-3">{{trans?.createdAt}}</b><br>
+            <span class="grey-d sz-1 mb-2 red" *ngIf="trans?.status=='pending'">{{trans?.status}}</span>
+            <span class="grey-d sz-1 mb-2 green" *ngIf="trans?.status=='completed'">{{trans?.status}}</span><br>
+          </ion-col>
+          <ion-col size="3">
+            <span class="grey-d sz-1">Deposited</span>
+          </ion-col>
+          <ion-col size="2">
+            <span class="sz-1 fw-4 green">
+              +{{trans?.amount}}
+            </span>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-grid>
+  </div>
+</ion-content>

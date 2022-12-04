@@ -1,0 +1,158 @@
+ion-content {
+  --background: white;
+}
+
+ion-content ion-datetime {
+  border-radius: 10px !important;
+}
+
+ion-content .datetime-text {
+  font-size: 16px;
+}
+
+ion-content .item-cover {
+  width: 0;
+  height: 0;
+}
+
+ion-content .title {
+  font-size: 18px;
+  font-weight: bolder;
+  color: #e54744;
+}
+
+ion-content .date-time {
+  width: 100%;
+  --box-shadow:none;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-text-decoration-color: #e54744;
+          text-decoration-color: #e54744;
+  color: lightgray;
+}
+
+ion-content .btn {
+  border-radius: 20px;
+  --background:#e54744 ;
+  bottom: 0;
+}
+
+ion-content ion-grid {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+ion-content ion-grid ion-row .payment-option {
+  display: -ms-grid;
+  display: grid;
+  justify-items: center;
+}
+
+ion-content ion-grid ion-row .payment-option input[type="radio"] {
+  display: none;
+  border-radius: 5px;
+}
+
+ion-content ion-grid ion-row .payment-option input[type="radio"]:checked ~ label .tick {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+ion-content ion-grid ion-row .payment-option label {
+  width: 80%;
+  height: 80px;
+  padding: 20px 10px;
+  text-align: center;
+  border-radius: 10px;
+  background: rgba(238, 238, 238, 0.51);
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+ion-content ion-grid ion-row .payment-option label .tick {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  background-color: rgba(255, 0, 0, 0.5);
+  display: none;
+}
+
+ion-content ion-grid ion-row .payment-option label .tick:after {
+  content: "";
+  width: 15px;
+  height: 30px;
+  margin: auto auto;
+  border: solid white;
+  border-width: 0 5px 5px 0;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+ion-content ion-grid .payment-method .form-control {
+  border-radius: 10px;
+  border: solid 1px grey;
+  color: grey;
+  font-size: 15px;
+  --background: white;
+}
+
+ion-content ion-grid .payment-method .form-control:focus {
+  -webkit-box-shadow: solid 5px grey;
+          box-shadow: solid 5px grey;
+}
+
+ion-content ion-grid .payment-method .form-group {
+  --text-align:center;
+}
+
+ion-content ion-grid .payment-method .form-group ion-label {
+  --text-align:center;
+}
+
+ion-content ion-grid .payment-method form {
+  margin: 20px 0 0 0;
+  width: 100%;
+  text-align: center;
+}
+
+ion-content ion-grid .payment-method p {
+  color: #fff;
+  text-align: center;
+}
+
+ion-content ion-grid .payment-method p b {
+  color: #fff;
+}
+
+ion-content ion-grid .payment-method input, ion-content ion-grid .payment-method select {
+  font-size: 15px !important;
+  width: 100%;
+  border-radius: 10px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  text-align: center;
+  padding: 10px 10px;
+  border: 2px solid #dbdbdb !important;
+}
+
+ion-content ion-grid .payment-method #date-input {
+  color: white;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+/*# sourceMappingURL=payment-method.page.css.map */

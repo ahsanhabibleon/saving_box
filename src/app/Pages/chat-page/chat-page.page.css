@@ -1,0 +1,290 @@
+.align ion-icon {
+  font-size: 31px;
+  color: #ccc;
+}
+
+.align .name {
+  text-transform: capitalize;
+}
+
+.align .sndmsg {
+  background: #178F4F;
+  color: #fff;
+  padding: 7px;
+  font-size: 16px;
+  border-radius: 50px;
+  margin-right: 10px;
+}
+
+ion-input {
+  border: none;
+}
+
+ion-col {
+  padding: 0px;
+}
+
+ion-footer {
+  padding: 5px;
+}
+
+.aa {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.message {
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 4px;
+  white-space: pre-wrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.message span {
+  display: block;
+  margin-top: 10px;
+}
+
+.user {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.my-message {
+  background: #25D366;
+  color: #000;
+  width: 100%;
+  position: relative;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.my-message img {
+  height: 50px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+.chat-message {
+  width: 100%;
+}
+
+.chat-message .right-bubble {
+  font-size: 16px;
+  padding: 10px;
+  margin-top: 8px;
+  white-space: pre-wrap;
+  max-width: 80%;
+  min-width: 50%;
+  color: #242424;
+  background: #ffffc7;
+  float: right;
+  position: relative;
+  right: 0px;
+  border-top-left-radius: .4em;
+  border-bottom-left-radius: .4em;
+  border-bottom-right-radius: .4em;
+}
+
+.chat-message .right-bubble .msg-name {
+  font-size: 12px;
+  font-weight: bold;
+  color: #000;
+}
+
+.chat-message .right-bubble span.msg-date {
+  font-size: 10px;
+}
+
+.chat-message .left-bubble {
+  font-size: 16px;
+  padding: 10px;
+  margin-top: 8px;
+  white-space: pre-wrap;
+  max-width: 80%;
+  min-width: 50%;
+  color: #3f3f3f;
+  background: #fff;
+  float: left;
+  position: relative;
+  left: 0px;
+  border-top-right-radius: .4em;
+  border-bottom-right-radius: .4em;
+  border-bottom-left-radius: .4em;
+}
+
+.chat-message .left-bubble .msg-name {
+  font-size: 12px;
+  font-weight: bold;
+  color: #000;
+}
+
+.chat-message .left-bubble span.msg-date {
+  font-size: 10px;
+}
+
+.profile_img {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 50px;
+          flex: 0 0 50px;
+  max-width: 50px;
+}
+
+.profile_img img {
+  height: 50px;
+  border-radius: 50%;
+  width: 50px;
+  border: 2px solid #eee;
+}
+
+.showProgress {
+  background: #178F4F;
+  color: #fff;
+  padding: 6px;
+  border-radius: 11px;
+  position: absolute;
+  z-index: 9999;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: 10px;
+}
+
+.showProgress h5 {
+  margin: 3px;
+  text-align: center;
+}
+
+.other-message {
+  background: #fff;
+  width: 100%;
+  padding: 10px;
+}
+
+.other-message img {
+  height: 50px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+.time {
+  color: white;
+  float: right;
+  padding-left: 5px;
+  font-size: 8px;
+}
+
+.emoji-mart {
+  width: 100%;
+}
+
+.container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100% 0%;
+      grid-template-columns: 100% 0%;
+  width: 36%;
+}
+
+.container button {
+  background: transparent;
+  border: 0;
+  -webkit-transform: translateX(-40px);
+          transform: translateX(-40px);
+  cursor: pointer;
+}
+
+.container button:focus {
+  outline: 0;
+}
+
+.message-input {
+  margin-top: 0px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: #fff;
+  width: 100%;
+  padding: 10px;
+}
+
+.msg-btn {
+  --padding-start: 0.5em;
+  --padding-end: 0.5em;
+}
+
+img {
+  height: 50px;
+  border-radius: 50%;
+}
+
+ion-icon {
+  font-size: 22px;
+}
+
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.footer ion-icon {
+  margin: 0px 10px;
+  font-size: 27px !important;
+}
+
+.file {
+  width: 70px;
+  height: 70px;
+  position: relative;
+}
+
+.file ion-icon {
+  font-size: 22px;
+  position: absolute;
+  top: 0px;
+  right: -21px;
+}
+
+.file-outer {
+  text-align: center !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+input {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+/*# sourceMappingURL=chat-page.page.css.map */

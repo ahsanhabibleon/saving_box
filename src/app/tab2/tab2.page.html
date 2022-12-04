@@ -1,0 +1,54 @@
+<ion-header #header class="header-bottom-100 m-0">
+  <ion-toolbar class="mt-4 p-2" mode="ios">
+    <ion-title class="red fw-4 sz-4 mt-3 pb-4">Notifications</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" scrollEvents="true" [appHideHeader]="header">
+<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+  <ion-refresher-content></ion-refresher-content>
+</ion-refresher>
+  <ion-list class="list">
+    <div *ngFor="let data of invitation;let i=index;">
+      <ion-item-sliding>
+        <div class="b br mt-2 mr-3 ml-3 pt-2 pb-2">
+          <ion-item lines="none" class="notifiy">
+            <div class="inner">
+              <div class="img">
+                <img [src]="data.image" onerror="this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI7M4Z0v1HP2Z9tZmfQaZFCuspezuoxter_A&usqp=CAU';" alt="" />
+              </div>
+              <span class="mr-3 ml-3 msg sz-1 fw-2 black">{{data.message}}</span>
+            <div class="d-flex column" *ngIf="data.status==='0'">
+              <ion-button color="success" (click)="acceptOffer(data,i)">Accept</ion-button>
+              <ion-button color="danger" (click)="declineOffer(data,i)">Reject</ion-button>
+            </div>
+          </div>
+        </ion-item>
+        <ion-item-options side="end" (ionSwipe)="presentAlertConfirm(i,data.invitation_id)">
+        </ion-item-options>
+        </div>
+      </ion-item-sliding>
+    </div>
+
+    <div *ngFor="let data of paymentnotification;let i=index;">
+      <ion-item-sliding>
+        <div class="b br mt-2 mr-3 ml-3 pt-2 pb-2 black">
+          <ion-item lines="none" class="notifiy">
+            <div class="inner">
+              <div class="img">
+                <img style="border: 0px;" src="assets/Imgs/personal.svg"  alt="" />
+              </div>
+              <span class="msg mr-3 ml-3 sz-1 fw-2">{{data.message}}</span>
+            </div>
+            <div>
+              <ion-button color="danger" (click)="payPayment(data,i)">Pay</ion-button>
+            </div>
+        </ion-item>
+        <ion-item-options side="end" (ionSwipe)="presentAlertConfirm(i,data.cycle_id)">
+        </ion-item-options>
+        </div>
+
+      </ion-item-sliding>
+    </div>
+  </ion-list>
+
+</ion-content>

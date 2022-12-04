@@ -1,0 +1,44 @@
+.gauge{
+    display:flex;
+    width: 100%;
+    justify-content: center;
+}
+.member_list{
+
+    h5{
+        font-size: 20px;
+        font-weight: 600;
+        text-align: center;
+    }
+}
+ion-item{
+    --background: transparent;
+ }
+ .ammount
+ {
+    font-size: 15px;
+    margin-right: 23px;
+    margin-left: 10px;
+    font-weight: bold;
+    border: 2px solid #ccc;
+    padding: 3px;
+    margin-top: 15px;
+    width: 100%;
+    border-radius: 20px;
+    text-align: center
+ }
+ .name{
+  font-size: 13px;
+  font-weight: bold;
+  //overflow-wrap: break-word;
+  --word-wrap: break-word;      /* IE 5.5-7 */
+  --white-space: -moz-pre-wrap; /* Firefox 1.0-2.0 */
+  --white-space: pre-wrap;      /* current browsers */
+    //text-overflow: ellipsis;
+    //overflow: hidden;
+    // white-space: nowrap;
+    // width: 70px;
+ }
+// .progress{
+//   --ion-padding: 5px 0 5px 0;
+// }

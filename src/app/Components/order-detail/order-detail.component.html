@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar mode="ios" class="header">
+    <ion-item class="item-btn" lines="none">
+      <ion-icon
+        name="close"
+        class="close-btn"
+        slot="start"
+        (click)="close()"
+      ></ion-icon>
+      <ion-title slot="start">Order Details</ion-title>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <div class="slider">
+        <ion-slides pager="true" [options]="slideOptsOne">
+          <ion-slide>
+            <img
+            src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+            alt=""
+          />
+          </ion-slide>
+          <!-- <ng-container *ngIf="order?.featuredImage1!=='https://thesavingsbox.com/api/chat-server/public/images/'">
+          <ion-slide>
+            <img
+            [src]="product?.featuredImage1"
+            alt=""
+          />
+          </ion-slide>
+        </ng-container>
+          <ng-container *ngIf="product?.featuredImage2!=='https://thesavingsbox.com/api/chat-server/public/images/'">
+            <ion-slide>
+              <img
+              [src]="product?.featuredImage2"
+              alt=""
+            />
+            </ion-slide>
+          </ng-container>
+          <ng-container *ngIf="product?.featuredImage3!=='https://thesavingsbox.com/api/chat-server/public/images/'">
+          <ion-slide>
+            <img
+            [src]="product?.featuredImage3"
+            alt=""
+          />
+          </ion-slide>
+        </ng-container> -->
+        </ion-slides>
+      </div>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <span><strong>Product One</strong></span><br>
+        <span>Order Id: 1</span><br>
+        <span>Price: $12</span><br>
+      </ion-col>
+    </ion-row>
+   <div style="margin: 0px 10px 10px 10px; background: rgb(224, 224, 224); border-radius: 10px;">
+    <ion-row style="padding: 15px">
+      <ion-col>
+        <p style="margin-top: 10px;">Description</p>
+        <span style="text-align: justify;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span>
+      </ion-col>
+    </ion-row>
+  </div>
+  </ion-grid>
+</ion-content>
+

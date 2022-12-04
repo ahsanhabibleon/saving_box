@@ -1,0 +1,31 @@
+.profile {
+  background: #e54744;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.text-white-location {
+  color: #dddddd;
+}
+
+ion-content {
+  --background: #fff;
+}
+
+.profile-img {
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  border: 3px solid #fff;
+}
+
+.label {
+  color: #e54744;
+}
+
+.detail {
+  color: #3d3d3d;
+}
+/*# sourceMappingURL=profile-page.page.css.map */

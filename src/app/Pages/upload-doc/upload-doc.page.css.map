@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,QAAQ,CAAC;EACP,YAAY,CAAA,KAAC;EACb,YAAY,CAAA,IAAC;EACb,aAAa,EAAE,IAAI;EACnB,SAAS,EAAE,IAAI;EACf,aAAa,EAAC,IAAI;CACnB;;AACD,AAAA,SAAS,CAAA;EACL,KAAK,EAAE,IAAI;EACX,UAAU,EAAE,IAAI;EAChB,aAAa,EAAE,IAAI;EACnB,aAAa,EAAE,IAAI;CACtB",
+    "sources": [
+        "upload-doc.page.scss"
+    ],
+    "names": [],
+    "file": "upload-doc.page.css"
+}

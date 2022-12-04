@@ -1,0 +1,72 @@
+<ion-content>
+  <div class="header_box">
+    <ion-icon name="log-out-outline" class="logout" (click)="logout()"></ion-icon>
+    <h4 class="ion-text-center">{{authservice?.currentUserValue?.first_name +' '+ authservice?.currentUserValue?.last_name}}</h4>
+    <div class="profile_img">
+      <!-- <img *ngIf="userData?.profile_image==null" src="assets/Imgs/profile-picc.png" alt="" /> -->
+      <img [src]="authservice?.currentUserValue?.profile_image=='' || authservice?.currentUserValue?.profile_image==null?'assets/Imgs/profile-picc.png':imageUrl+authservice?.currentUserValue?.profile_image" alt="" />
+      <!-- <ion-icon name="pencil-outline" (click)="editprofile()"></ion-icon> -->
+    </div>
+  </div>
+  <div class="info-box">
+   <ion-item lines="none">
+     <div style="width: 65%;" slot="start">
+       <ion-label color="danger">Email</ion-label>
+       <p class="ion-no-margin">{{authservice?.currentUserValue?.email}}</p>
+     </div>
+     <ion-toggle slot="end" [(ngModel)]="emailStatus" (ionChange)="updateStatus('email',emailStatus)" color="danger"></ion-toggle>
+   </ion-item>
+   <!-- <ion-item lines="none">
+    <div slot="start">
+      <ion-label color="danger">Mobile</ion-label>
+      <p mask='(000) 000-0000' class="ion-no-margin">{{authservice?.currentUserValue?.mobile | mask: '(000) 000-0000'}}</p>
+    </div>
+    <ion-toggle slot="end" [(ngModel)]="mobileStatus" (ionChange)="updateStatus('mobile',mobileStatus)" color="danger"></ion-toggle>
+  </ion-item>   -->
+  <!-- <ion-item lines="none">
+    <div slot="start">
+      <ion-label color="danger">Gender</ion-label>
+      <p class="ion-no-margin">{{authservice?.currentUserValue?.gender}}</p>
+    </div>
+    <ion-toggle slot="end" [(ngModel)]="genderStatus" (ionChange)="updateStatus('gender',genderStatus)" color="danger"></ion-toggle>
+  </ion-item>   -->
+  <ion-item *ngIf="authservice?.currentUserValue?.date_of_birth!=null"  lines="none">
+    <div slot="start">
+      <ion-label color="danger">Date of Birth</ion-label>
+      <p class="ion-no-margin">{{moment(authservice?.currentUserValue?.date_of_birth).format('MMM DD, YYYY')}}</p>
+    </div>
+    <ion-toggle slot="end" [(ngModel)]="dobStatus" (ionChange)="updateStatus('date_of_birth',dobStatus)" color="danger"></ion-toggle>
+  </ion-item>
+  <ion-item lines="none">
+    <div slot="start">
+      <ion-label color="danger">Face Login</ion-label>
+      <!-- <p class="ion-no-margin">{{moment(authservice.currentUserValue.faceLogin).format('DD/MM/YYYY')}}</p> -->
+    </div>
+    <ion-toggle slot="end" [(ngModel)]="faceLoginStatus" (ionChange)="updateStatus('faceLogin',faceLoginStatus)" color="danger"></ion-toggle>
+  </ion-item>
+  <ion-item lines="none" (click)="addedPayment()">
+    <div slot="start">
+      <p>Payment Methods</p>
+    </div>
+    <ion-icon name="chevron-forward-outline" color="danger" slot="end"></ion-icon>
+  </ion-item>
+  <ion-item lines="none" (click)="changepassword()">
+    <div slot="start">
+      <p>Change Password</p>
+    </div>
+    <ion-icon name="chevron-forward-outline" color="danger" slot="end"></ion-icon>
+  </ion-item>
+  <ion-item lines="none" (click)="openPrivacy()">
+    <div slot="start">
+      <p>Privacy Policy</p>
+    </div>
+    <ion-icon name="chevron-forward-outline" color="danger" slot="end"></ion-icon>
+  </ion-item>
+  <ion-item lines="none" (click)="support()">
+    <div slot="start">
+      <p>Support</p>
+    </div>
+    <ion-icon name="chevron-forward-outline" color="danger" slot="end"></ion-icon>
+  </ion-item>
+  </div>
+</ion-content>

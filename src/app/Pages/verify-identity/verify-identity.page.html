@@ -1,0 +1,28 @@
+<ion-header #header class="header-bottom-100 m-0">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-back-button class="mt-3" color="danger" mode="md" (click)='navigate()'></ion-back-button>
+    </ion-buttons>
+    <ion-title color="danger" class="red fw-4 sz-4 mt-3 pb-4">Verify Identity</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid class="ion-margin">
+    <ion-row class="ion-text-center">
+      <ion-col size="12">
+        <div class="ion-text-center pic ion-margin-bottom">
+          <img src="assets/Imgs/sample_user.jpg"/>
+        </div>
+        <p class="mt-0 sz-4 fw-2 gery-d ">Sample Image</p>
+      </ion-col>
+      <ion-col size="12">
+        <div class="ion-text-center pic ion-margin-bottom">
+          <img src="assets/Imgs/profile-picc.png"/>
+        </div>
+        <p class="mt-0 sz-4 fw-2 gery-d">User Image</p>
+      </ion-col>
+    </ion-row>
+    <ion-button class="mr-4 ml-4 mt-0" expand="block" mode="ios" color="danger" (click)="openModal()">Open Camera</ion-button>
+  </ion-grid>
+</ion-content>

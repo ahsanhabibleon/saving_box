@@ -1,0 +1,13 @@
+<ion-content class="ion-padding">
+  <form class="heading-box" [formGroup]="otpform">
+<h4 class="ion-text-center red">One Time Verification</h4>
+<img src="assets/Imgs/logo.png" alt="">
+<div class="input">
+<ion-input placeholder="1234" class="b br mt-2 mb-4 " formControlName="otp"></ion-input>
+<p class="error sz-1" *ngIf="otpform.get('otp').hasError('required') && otpform.get('otp').touched">Enter VALID Code</p>
+</div>
+<ion-button expand="block" color="danger" mode="ios" (click)="verifyOtp()">Verify</ion-button>
+<p class="grey sz-4" (click)="resend()">Didn't get Code?<b> Resend Code</b></p>
+
+  </form>
+</ion-content>

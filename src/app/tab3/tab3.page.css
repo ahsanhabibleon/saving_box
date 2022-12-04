@@ -1,0 +1,114 @@
+h1 {
+  text-align: center;
+  font-size: 18px;
+  color: #000;
+  margin-bottom: 25px;
+}
+
+.profile-error {
+  color: #ff0000;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+ion-radio-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.add_mem {
+  --background: hsla(351, 100%, 86%, 0.5);
+  --background-activated: hsla(351, 100%, 86%, 0.3);
+  color: #000;
+}
+
+input {
+  width: 100%;
+  border: 10px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center !important;
+}
+
+input:focus {
+  outline: none;
+}
+
+.selectedUser {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+img {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+
+ion-button {
+  --border-radius: 10px;
+  width: 100%;
+  margin-top: 30px;
+}
+
+ion-item {
+  --background: transparent;
+}
+
+ion-header {
+  --background: transparent;
+}
+
+ion-toolbar {
+  --background: hsla(351, 100%, 86%, 0.3);
+  --color: #fff !important;
+  --border-width: 0px !important;
+}
+
+ion-content {
+  --background: hsla(351, 100%, 86%, 0.3);
+}
+
+ion-input {
+  --background: #fff;
+  --padding-start: 5px;
+  border-radius: 13px;
+  border: 2px solid #eee;
+  margin-bottom: 10px;
+}
+
+ion-datetime {
+  background: #fff;
+  --padding-start: 5px;
+  border-radius: 13px;
+  border: 2px solid #eee;
+  margin-bottom: 10px;
+}
+
+ion-select {
+  width: 100%;
+  background: #fff;
+  --padding-start: 5px;
+  border-radius: 13px;
+  border: 2px solid #eee;
+}
+
+ion-label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+/*# sourceMappingURL=tab3.page.css.map */

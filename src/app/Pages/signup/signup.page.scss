@@ -1,0 +1,31 @@
+// ion-content{
+//   --background:#e54744;
+// }
+ion-grid{
+  // background-color:#e54744;
+  width: 100vw;
+  height: 100vh;
+  ion-row{
+    display:block;
+  }
+  ion-img{
+    margin: 0 auto;
+    width: 260px;
+  }
+  .title{
+    color: grey;
+    font-size: 18px;
+    margin: 0 0 2px 0;
+  }
+}
+.signup{
+  //position: absolute;
+  //z-index: 999;
+  margin-bottom: 0px;
+  //position:fixed;
+  //left: 0;
+  //right: 0;
+  //margin: auto;
+  text-align: center;
+}
+
